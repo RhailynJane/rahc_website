@@ -1,9 +1,15 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Shield,
   Smartphone,
@@ -22,23 +28,23 @@ import {
   Database,
   Activity,
   Globe,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function HomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100
-      })
-    }
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const services = [
     {
@@ -173,14 +179,17 @@ export default function HomePage() {
         "Supports community-based health initiatives and programs",
       ],
     },
-  ]
+  ];
 
   const stats = [
-    { number: "200km+", label: "Average distance to specialist care in rural Alberta" },
+    {
+      number: "200km+",
+      label: "Average distance to specialist care in rural Alberta",
+    },
     { number: "45min+", label: "Average ambulance response time" },
     { number: "23%", label: "Of rural Alberta lacks reliable internet" },
     { number: "24/7", label: "AI-powered health guidance availability" },
-  ]
+  ];
 
   const teamMembers = [
     {
@@ -188,49 +197,53 @@ export default function HomePage() {
       role: "Project Manager & Frontend Developer",
       description:
         "Leading the development of user-centered healthcare solutions with expertise in UX/UI design, React development, and rural user research. Focused on creating accessible interfaces that work for diverse rural populations.",
-      image: "/images/rhai_linkedin.jpg"
+      image: "/images/rhai_linkedin.jpg",
     },
     {
       name: "Yue Zhou",
       role: "Backend Developer & AI/ML Specialist",
       description:
         "Developing the AI-powered backend systems and machine learning models that power our symptom analysis platform. Specializes in computer vision, natural language processing, and healthcare AI compliance.",
-      image: "/images/amir_linkedin.jpg"
+      image: "/images/amir_linkedin.jpg",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden font-barlow">
       {/* Enhanced Animated Background with More Gradients */}
-      <div 
+      <div
         className="fixed inset-0 z-0 transition-transform duration-1000 ease-out"
         style={{
-          transform: `translate(${mousePosition.x * 0.03}px, ${mousePosition.y * 0.03}px)`
+          transform: `translate(${mousePosition.x * 0.03}px, ${
+            mousePosition.y * 0.03
+          }px)`,
         }}
       >
         {/* Base Gradient Layer */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/90 via-white to-cyan-50/90"></div>
-        
+
         {/* Animated Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-200/30 via-purple-200/20 to-cyan-200/30 animate-gradient-flow"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-blue-100/40 via-transparent to-cyan-100/40"></div>
-        
+
         {/* Enhanced Geometric Shapes with More Colors */}
         <div className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-r from-blue-300/25 to-cyan-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-40 right-20 w-96 h-96 bg-gradient-to-r from-cyan-300/20 to-blue-400/15 rounded-full blur-3xl animate-pulse-slower"></div>
         <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-r from-purple-300/15 to-blue-300/10 rounded-full blur-3xl animate-pulse-slowest"></div>
         <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-gradient-to-r from-blue-400/10 to-cyan-400/15 rounded-full blur-3xl animate-pulse-slow"></div>
-        
+
         {/* Enhanced Moving Grid Pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `
               linear-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px),
               linear-gradient(90deg, rgba(59, 130, 246, 0.15) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px',
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
+            backgroundSize: "60px 60px",
+            transform: `translate(${mousePosition.x * 0.02}px, ${
+              mousePosition.y * 0.02
+            }px)`,
           }}
         ></div>
 
@@ -241,14 +254,14 @@ export default function HomePage() {
               key={i}
               className="absolute w-3 h-3 bg-gradient-to-r from-blue-400/30 to-cyan-400/30 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 8}s`,
-                animationDuration: `${12 + Math.random() * 12}s`,
-                width: `${2 + Math.random() * 3}px`,
-                height: `${2 + Math.random() * 3}px`
+                left: `${10 + i * 3.6}%`,
+                top: `${10 + i * 3.2}%`,
+                animationDelay: `${i * 0.3}s`,
+                animationDuration: `${15 + i * 0.5}s`,
+                width: `${3 + (i % 2)}px`,
+                height: `${3 + (i % 3)}px`,
               }}
-            ></div>
+            />
           ))}
         </div>
 
@@ -262,16 +275,26 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-3">
-                <img src="/images/logo.png" alt="Rural Alberta Health Connect" className="h-10 w-10" />
-                <span className="text-xl font-bold text-gray-900 font-barlow-condensed">Rural Alberta Health Connect</span>
+                <img
+                  src="/images/logo.png"
+                  alt="Rural Alberta Health Connect"
+                  className="h-10 w-10"
+                />
+                <span className="text-xl font-bold text-gray-900 font-barlow-condensed">
+                  Rural Alberta Health Connect
+                </span>
               </div>
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8 font-barlow">
-                {['services', 'about', 'team', 'contact'].map((section) => (
+                {["services", "about", "team", "contact"].map((section) => (
                   <button
                     key={section}
-                    onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
+                    onClick={() =>
+                      document
+                        .getElementById(section)
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
                     className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:scale-105 font-semibold tracking-wide"
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -280,23 +303,29 @@ export default function HomePage() {
               </div>
 
               {/* Mobile menu button */}
-              <button 
-                onClick={() => setIsMenuOpen(!isMenuOpen)} 
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </button>
             </div>
 
             {/* Mobile Navigation */}
             {isMenuOpen && (
               <div className="md:hidden py-4 space-y-4 border-t border-gray-200/40 font-barlow">
-                {['services', 'about', 'team', 'contact'].map((section) => (
+                {["services", "about", "team", "contact"].map((section) => (
                   <button
                     key={section}
                     onClick={() => {
-                      document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })
-                      setIsMenuOpen(false)
+                      document
+                        .getElementById(section)
+                        ?.scrollIntoView({ behavior: "smooth" });
+                      setIsMenuOpen(false);
                     }}
                     className="block w-full text-left py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors text-gray-600 hover:text-gray-900 font-semibold tracking-wide"
                   >
@@ -315,17 +344,23 @@ export default function HomePage() {
               AI-Enhanced Telemedicine Platform
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance text-gray-900 font-barlow-condensed">
-              Healthcare Access for <span className="text-blue-600">Rural Alberta</span>
+              Healthcare Access for{" "}
+              <span className="text-blue-600">Rural Alberta</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto text-pretty backdrop-blur-sm bg-white/50 rounded-lg p-6 font-barlow">
-              Bridging the healthcare gap with AI-powered symptom analysis, emergency triage, and 24/7 health guidance
-              designed specifically for rural communities.
+              Bridging the healthcare gap with AI-powered symptom analysis,
+              emergency triage, and 24/7 health guidance designed specifically
+              for rural communities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 className="text-lg px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 font-barlow font-semibold tracking-wide"
-                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() =>
+                  document
+                    .getElementById("services")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Learn More
                 <ChevronRight className="ml-2 h-5 w-5" />
@@ -339,11 +374,16 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center backdrop-blur-sm bg-white/70 rounded-2xl p-6 hover:scale-105 transition-transform duration-300 shadow-sm">
+                <div
+                  key={index}
+                  className="text-center backdrop-blur-sm bg-white/70 rounded-2xl p-6 hover:scale-105 transition-transform duration-300 shadow-sm"
+                >
                   <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2 font-barlow-condensed">
                     {stat.number}
                   </div>
-                  <div className="text-gray-600 text-pretty font-barlow">{stat.label}</div>
+                  <div className="text-gray-600 text-pretty font-barlow">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -351,15 +391,19 @@ export default function HomePage() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-20 bg-gradient-to-br from-white/70 via-blue-50/40 to-cyan-50/40 backdrop-blur-sm relative">
+        <section
+          id="services"
+          className="py-20 bg-gradient-to-br from-white/70 via-blue-50/40 to-cyan-50/40 backdrop-blur-sm relative"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-gray-900 font-barlow-condensed">
                 Revolutionary Healthcare Solutions
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty font-barlow">
-                Our AI-powered platform combines cutting-edge technology with deep understanding of rural healthcare
-                challenges to deliver accessible, reliable health guidance.
+                Our AI-powered platform combines cutting-edge technology with
+                deep understanding of rural healthcare challenges to deliver
+                accessible, reliable health guidance.
               </p>
             </div>
 
@@ -374,7 +418,9 @@ export default function HomePage() {
                       <div className="p-3 bg-blue-600 rounded-lg text-white">
                         {service.icon}
                       </div>
-                      <CardTitle className="text-xl text-balance text-gray-900 font-barlow-condensed">{service.title}</CardTitle>
+                      <CardTitle className="text-xl text-balance text-gray-900 font-barlow-condensed">
+                        {service.title}
+                      </CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -384,9 +430,14 @@ export default function HomePage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
                       {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center space-x-2">
+                        <div
+                          key={featureIndex}
+                          className="flex items-center space-x-2"
+                        >
                           <CheckCircle className="h-4 w-4 text-blue-500 flex-shrink-0" />
-                          <span className="text-sm text-gray-700 font-barlow">{feature}</span>
+                          <span className="text-sm text-gray-700 font-barlow">
+                            {feature}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -397,7 +448,10 @@ export default function HomePage() {
                       </h4>
                       <ul className="space-y-2">
                         {service.details.map((detail, detailIndex) => (
-                          <li key={detailIndex} className="text-sm text-gray-600 flex items-start space-x-2 font-barlow">
+                          <li
+                            key={detailIndex}
+                            className="text-sm text-gray-600 flex items-start space-x-2 font-barlow"
+                          >
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                             <span>{detail}</span>
                           </li>
@@ -412,7 +466,10 @@ export default function HomePage() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 bg-gradient-to-r from-cyan-50/50 via-blue-50/40 to-cyan-50/50 backdrop-blur-sm">
+        <section
+          id="about"
+          className="py-20 bg-gradient-to-r from-cyan-50/50 via-blue-50/40 to-cyan-50/50 backdrop-blur-sm"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -420,21 +477,42 @@ export default function HomePage() {
                   Bridging the Rural Healthcare Gap
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 text-pretty font-barlow">
-                  Rural Alberta residents face significant healthcare access challenges, including geographic isolation,
-                  provider shortages, and limited emergency response capabilities. Our platform addresses these critical
-                  gaps with innovative AI technology.
+                  Rural Alberta residents face significant healthcare access
+                  challenges, including geographic isolation, provider
+                  shortages, and limited emergency response capabilities. Our
+                  platform addresses these critical gaps with innovative AI
+                  technology.
                 </p>
                 <div className="space-y-4">
                   {[
-                    { icon: MapPin, title: "Location-Aware Services", desc: "GPS-integrated emergency triage and local healthcare facility finder" },
-                    { icon: Wifi, title: "Offline-First Design", desc: "Essential features work without internet, syncing when connection returns" },
-                    { icon: Camera, title: "Multi-Modal AI Analysis", desc: "Combines text descriptions with image analysis for comprehensive assessments" }
+                    {
+                      icon: MapPin,
+                      title: "Location-Aware Services",
+                      desc: "GPS-integrated emergency triage and local healthcare facility finder",
+                    },
+                    {
+                      icon: Wifi,
+                      title: "Offline-First Design",
+                      desc: "Essential features work without internet, syncing when connection returns",
+                    },
+                    {
+                      icon: Camera,
+                      title: "Multi-Modal AI Analysis",
+                      desc: "Combines text descriptions with image analysis for comprehensive assessments",
+                    },
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-3 backdrop-blur-sm bg-white/70 rounded-lg p-4 hover:scale-105 transition-transform duration-300">
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 backdrop-blur-sm bg-white/70 rounded-lg p-4 hover:scale-105 transition-transform duration-300"
+                    >
                       <item.icon className="h-6 w-6 text-blue-500 mt-1 flex-shrink-0" />
                       <div>
-                        <h3 className="font-semibold mb-1 text-gray-800 font-barlow-condensed">{item.title}</h3>
-                        <p className="text-gray-600 text-pretty font-barlow">{item.desc}</p>
+                        <h3 className="font-semibold mb-1 text-gray-800 font-barlow-condensed">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600 text-pretty font-barlow">
+                          {item.desc}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -444,17 +522,39 @@ export default function HomePage() {
                 <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-2xl p-8 backdrop-blur-sm border border-gray-200/30">
                   <div className="space-y-6">
                     {[
-                      { icon: Clock, bg: "bg-blue-500", title: "24/7 Availability", desc: "Always-on health guidance" },
-                      { icon: Shield, bg: "bg-cyan-500", title: "Privacy Compliant", desc: "HIA and PIPEDA compliant" },
-                      { icon: Users, bg: "bg-gradient-to-r from-blue-500 to-cyan-500", title: "Community Focused", desc: "Built for rural communities" }
+                      {
+                        icon: Clock,
+                        bg: "bg-blue-500",
+                        title: "24/7 Availability",
+                        desc: "Always-on health guidance",
+                      },
+                      {
+                        icon: Shield,
+                        bg: "bg-cyan-500",
+                        title: "Privacy Compliant",
+                        desc: "HIA and PIPEDA compliant",
+                      },
+                      {
+                        icon: Users,
+                        bg: "bg-gradient-to-r from-blue-500 to-cyan-500",
+                        title: "Community Focused",
+                        desc: "Built for rural communities",
+                      },
                     ].map((item, index) => (
-                      <div key={index} className="flex items-center space-x-4 hover:scale-105 transition-transform duration-300">
+                      <div
+                        key={index}
+                        className="flex items-center space-x-4 hover:scale-105 transition-transform duration-300"
+                      >
                         <div className={`p-3 ${item.bg} rounded-lg`}>
                           <item.icon className="h-6 w-6 text-white" />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-gray-800 font-barlow-condensed">{item.title}</h4>
-                          <p className="text-sm text-gray-600 font-barlow">{item.desc}</p>
+                          <h4 className="font-semibold text-gray-800 font-barlow-condensed">
+                            {item.title}
+                          </h4>
+                          <p className="text-sm text-gray-600 font-barlow">
+                            {item.desc}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -466,34 +566,47 @@ export default function HomePage() {
         </section>
 
         {/* Team Section */}
-        <section id="team" className="py-20 bg-gradient-to-br from-white/70 via-blue-50/40 to-cyan-50/40 backdrop-blur-sm">
+        <section
+          id="team"
+          className="py-20 bg-gradient-to-br from-white/70 via-blue-50/40 to-cyan-50/40 backdrop-blur-sm"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-gray-900 font-barlow-condensed">
                 Meet Our Team
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty font-barlow">
-                Dedicated professionals committed to revolutionizing rural healthcare access through innovative
-                technology and compassionate design.
+                Dedicated professionals committed to revolutionizing rural
+                healthcare access through innovative technology and
+                compassionate design.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {teamMembers.map((member, index) => (
-                <Card key={index} className="bg-white/80 backdrop-blur-sm border-gray-200/50 text-center hover:scale-105 transition-transform duration-300 font-barlow">
+                <Card
+                  key={index}
+                  className="bg-white/80 backdrop-blur-sm border-gray-200/50 text-center hover:scale-105 transition-transform duration-300 font-barlow"
+                >
                   <CardHeader>
                     <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                      <img 
-                        src={member.image} 
+                      <img
+                        src={member.image}
                         alt={member.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <CardTitle className="text-xl text-balance text-gray-900 font-barlow-condensed">{member.name}</CardTitle>
-                    <CardDescription className="text-blue-600 font-medium font-barlow">{member.role}</CardDescription>
+                    <CardTitle className="text-xl text-balance text-gray-900 font-barlow-condensed">
+                      {member.name}
+                    </CardTitle>
+                    <CardDescription className="text-blue-600 font-medium font-barlow">
+                      {member.role}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 text-pretty font-barlow">{member.description}</p>
+                    <p className="text-gray-600 text-pretty font-barlow">
+                      {member.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -502,17 +615,25 @@ export default function HomePage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-gradient-to-r from-blue-500/15 via-white to-cyan-500/15 backdrop-blur-sm">
+        <section
+          id="contact"
+          className="py-20 bg-gradient-to-r from-blue-500/15 via-white to-cyan-500/15 backdrop-blur-sm"
+        >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance text-gray-900 font-barlow-condensed">
               Get in Touch
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-pretty font-barlow">
-              Ready to revolutionize rural healthcare? Contact us to learn more about our platform and partnership opportunities.
+              Ready to revolutionize rural healthcare? Contact us to learn more
+              about our platform and partnership opportunities.
             </p>
             <Button
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
+              onClick={() =>
+                (window.location.href =
+                  "mailto:ruralalbertahealthconnect@gmail.com")
+              }
             >
               <Mail className="mr-2 h-5 w-5" />
               Contact Us
@@ -526,29 +647,58 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="col-span-1 md:col-span-2">
                 <div className="flex items-center space-x-3 mb-4">
-                  <img src="/images/logo.png" alt="Rural Alberta Health Connect" className="h-8 w-8" />
-                  <span className="text-xl font-bold text-balance text-gray-900 font-barlow-condensed">Rural Alberta Health Connect</span>
+                  <img
+                    src="/images/logo.png"
+                    alt="Rural Alberta Health Connect"
+                    className="h-8 w-8"
+                  />
+                  <span className="text-xl font-bold text-balance text-gray-900 font-barlow-condensed">
+                    Rural Alberta Health Connect
+                  </span>
                 </div>
                 <p className="text-gray-600 mb-4 text-pretty">
-                  AI-Enhanced Telemedicine Platform for Rural Communities. Bridging the healthcare gap with innovative
-                  technology and compassionate care.
+                  AI-Enhanced Telemedicine Platform for Rural Communities.
+                  Bridging the healthcare gap with innovative technology and
+                  compassionate care.
                 </p>
               </div>
 
-              {['Services', 'Company'].map((category, index) => (
+              {["Services", "Company"].map((category, index) => (
                 <div key={index}>
-                  <h3 className="font-semibold mb-4 text-gray-800 font-barlow-condensed">{category}</h3>
+                  <h3 className="font-semibold mb-4 text-gray-800 font-barlow-condensed">
+                    {category}
+                  </h3>
                   <ul className="space-y-2 text-gray-600">
-                    {category === 'Services' ? (
+                    {category === "Services" ? (
                       <>
-                        <li><button className="hover:text-blue-600 transition-colors font-barlow">AI Symptom Analysis</button></li>
-                        <li><button className="hover:text-blue-600 transition-colors font-barlow">Emergency Triage</button></li>
-                        <li><button className="hover:text-blue-600 transition-colors font-barlow">Health Tracking</button></li>
+                        <li>
+                          <button className="hover:text-blue-600 transition-colors font-barlow">
+                            AI Symptom Analysis
+                          </button>
+                        </li>
+                        <li>
+                          <button className="hover:text-blue-600 transition-colors font-barlow">
+                            Emergency Triage
+                          </button>
+                        </li>
+                        <li>
+                          <button className="hover:text-blue-600 transition-colors font-barlow">
+                            Health Tracking
+                          </button>
+                        </li>
                       </>
                     ) : (
                       <>
-                        <li><button className="hover:text-blue-600 transition-colors font-barlow">About Us</button></li>
-                        <li><button className="hover:text-blue-600 transition-colors font-barlow">Our Team</button></li>
+                        <li>
+                          <button className="hover:text-blue-600 transition-colors font-barlow">
+                            About Us
+                          </button>
+                        </li>
+                        <li>
+                          <button className="hover:text-blue-600 transition-colors font-barlow">
+                            Our Team
+                          </button>
+                        </li>
                       </>
                     )}
                   </ul>
@@ -557,12 +707,17 @@ export default function HomePage() {
             </div>
 
             <div className="border-t border-gray-200/40 mt-8 pt-8 text-center text-gray-600">
-              <p>&copy; 2025 Rural Alberta Health Connect. All rights reserved.</p>
-              <p className="mt-2 text-sm">Committed to improving healthcare access for rural Alberta communities.</p>
+              <p>
+                &copy; 2025 Rural Alberta Health Connect. All rights reserved.
+              </p>
+              <p className="mt-2 text-sm">
+                Committed to improving healthcare access for rural Alberta
+                communities.
+              </p>
             </div>
           </div>
         </footer>
       </div>
     </div>
-  )
+  );
 }
