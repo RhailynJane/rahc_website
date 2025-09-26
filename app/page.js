@@ -59,7 +59,6 @@ export default function HomePage() {
         "24/7 AI-Powered Assessment",
         "Offline Capability for Rural Areas",
         "Bias Detection & Mitigation",
-        "Multi-Language Support",
         "Cultural Sensitivity Validation",
       ],
       details: [
@@ -164,7 +163,6 @@ export default function HomePage() {
         "Designed specifically for rural Alberta communities with cultural sensitivity, local healthcare system integration, and support for Indigenous languages. Connects users with local resources and community health initiatives.",
       features: [
         "Cultural Sensitivity Validation",
-        "Indigenous Language Support",
         "Local Healthcare Integration",
         "Community Health Resources",
         "Rural Lifestyle Considerations",
