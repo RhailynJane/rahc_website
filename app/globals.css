@@ -100,18 +100,6 @@
   }
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -126,15 +114,6 @@
 
 .animate-pulse-slowest {
   animation: pulse-slowest 8s ease-in-out infinite;
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 6s ease infinite;
-}
-
-.bg-size-200 {
-  background-size: 200% 200%;
 }
 
 /* Enhanced styles */
@@ -178,4 +157,29 @@
   .backdrop-blur-md {
     backdrop-filter: blur(8px);
   }
+}
+
+/* Gradient text removal - using solid colors instead */
+.text-gray-900 {
+  color: #111827;
+}
+
+.text-gray-800 {
+  color: #1f2937;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.text-green-500 {
+  color: #10b981;
 }
