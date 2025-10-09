@@ -41,3 +41,5 @@ yarn-error.log*
 next-env.d.ts
 public/bundle/universal.apk
 *.apk
+public/bundle/universal.apk
+*.apk
