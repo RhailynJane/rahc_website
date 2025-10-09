@@ -1,42 +1,51 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Smartphone, Download, Shield, CheckCircle, AlertTriangle, ArrowLeft } from "lucide-react";
+import {
+  Smartphone,
+  Download,
+  Shield,
+  CheckCircle,
+  AlertTriangle,
+  ArrowLeft,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function DownloadPage() {
-    const appFeatures = [
-      "AI Symptom Analysis",
-      "Emergency Triage System",
-      "Offline Functionality",
-      "Health Tracking",
-      "Local Facility Finder",
-      "24/7 Health Guidance"
-    ];
+  const appFeatures = [
+    "AI Symptom Analysis",
+    "Emergency Triage System",
+    "Offline Functionality",
+    "Health Tracking",
+    "Local Facility Finder",
+    "24/7 Health Guidance",
+  ];
   const handleDownload = () => {
-    // Direct download link to your APK
-    const link = document.createElement('a');
-    link.href = '/bundle/universal.apk';
-    link.download = 'RuralAlbertaHealthConnect.apk';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const apkUrl =
+      "https://drive.google.com/uc?export=download&id=1wrifuWBuuA2I5XBTgrmXQTX0KJ8eHgEp";
+    window.open(apkUrl, "_blank", "noopener,noreferrer");
   };
 
   const appInfo = {
     version: "1.0.0",
-    size: "25.4 MB",
+    size: "382.39 MB",
     requirements: "Android 8.0+",
-    lastUpdated: "October 2025"
+    lastUpdated: "October 2025",
   };
 
   const securityFeatures = [
     "End-to-end encrypted data transmission",
     "No personal data collection",
     "Local processing for privacy",
-    "HIA & PIPEDA compliant"
+    "HIA & PIPEDA compliant",
   ];
 
   const installationSteps = [
@@ -44,7 +53,7 @@ export default function DownloadPage() {
     "Open the downloaded APK file",
     "Allow installation from unknown sources if prompted",
     "Follow the installation instructions",
-    "Launch the app and get started"
+    "Launch the app and get started",
   ];
 
   return (
@@ -52,7 +61,10 @@ export default function DownloadPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6 font-semibold">
+          <Link
+            href="/"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6 font-semibold"
+          >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Home
           </Link>
@@ -88,7 +100,9 @@ export default function DownloadPage() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-blue-50 rounded-lg">
                   <div className="text-center">
                     <div className="font-semibold text-blue-600">Version</div>
-                    <div className="text-sm text-gray-600">{appInfo.version}</div>
+                    <div className="text-sm text-gray-600">
+                      {appInfo.version}
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="font-semibold text-blue-600">Size</div>
@@ -96,11 +110,15 @@ export default function DownloadPage() {
                   </div>
                   <div className="text-center">
                     <div className="font-semibold text-blue-600">Android</div>
-                    <div className="text-sm text-gray-600">{appInfo.requirements}</div>
+                    <div className="text-sm text-gray-600">
+                      {appInfo.requirements}
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="font-semibold text-blue-600">Updated</div>
-                    <div className="text-sm text-gray-600">{appInfo.lastUpdated}</div>
+                    <div className="text-sm text-gray-600">
+                      {appInfo.lastUpdated}
+                    </div>
                   </div>
                 </div>
 
@@ -113,14 +131,16 @@ export default function DownloadPage() {
                         Enable Unknown Sources
                       </h4>
                       <p className="text-yellow-700 text-sm">
-                        To install this APK, you&apos;ll need to enable &quot;Install from Unknown Sources&quot; in your Android settings. This is safe for our verified application.
+                        To install this APK, you&apos;ll need to enable
+                        &quot;Install from Unknown Sources&quot; in your Android
+                        settings. This is safe for our verified application.
                       </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Download Button */}
-                <Button 
+                <Button
                   onClick={handleDownload}
                   className="w-full py-6 text-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold"
                   size="lg"
@@ -131,7 +151,9 @@ export default function DownloadPage() {
 
                 {/* Installation Steps */}
                 <div>
-                  <h3 className="font-semibold mb-4 text-gray-800 text-lg">Installation Steps:</h3>
+                  <h3 className="font-semibold mb-4 text-gray-800 text-lg">
+                    Installation Steps:
+                  </h3>
                   <ol className="space-y-3">
                     {installationSteps.map((step, index) => (
                       <li key={step} className="flex items-start space-x-3">
@@ -175,16 +197,19 @@ export default function DownloadPage() {
                 <CardTitle className="text-gray-900">App Features</CardTitle>
               </CardHeader>
               <CardContent>
-                  <div className="space-y-3">
-                    {appFeatures.map((feature) => {
-                      return (
-                        <div key={feature} className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{feature}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
+                <div className="space-y-3">
+                  {appFeatures.map((feature) => {
+                    return (
+                      <div
+                        key={feature}
+                        className="flex items-center space-x-2"
+                      >
+                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
+                        <span className="text-sm text-gray-700">{feature}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </CardContent>
             </Card>
 
@@ -195,12 +220,16 @@ export default function DownloadPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600 mb-4">
-                  Having trouble with installation or have questions about the app?
+                  Having trouble with installation or have questions about the
+                  app?
                 </p>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full"
-                  onClick={() => window.location.href = "mailto:ruralalbertahealthconnect@gmail.com"}
+                  onClick={() =>
+                    (window.location.href =
+                      "mailto:ruralalbertahealthconnect@gmail.com")
+                  }
                 >
                   Contact Support
                 </Button>
