@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,7 +20,6 @@ import {
   Brain,
   Camera,
   Wifi,
-  Phone,
   Mail,
   Menu,
   X,
@@ -28,6 +28,7 @@ import {
   Database,
   Activity,
   Globe,
+  Download,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -247,20 +248,25 @@ export default function HomePage() {
 
         {/* Enhanced Floating Particles */}
         <div className="absolute inset-0">
-          {[...Array(25)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-3 h-3 bg-gradient-to-r from-blue-400/30 to-cyan-400/30 rounded-full animate-float"
-              style={{
-                left: `${10 + i * 3.6}%`,
-                top: `${10 + i * 3.2}%`,
-                animationDelay: `${i * 0.3}s`,
-                animationDuration: `${15 + i * 0.5}s`,
-                width: `${3 + (i % 2)}px`,
-                height: `${3 + (i % 3)}px`,
-              }}
-            />
-          ))}
+          {Array.from({ length: 25 }).map((_, i) => {
+            const key = `particle-${Math.random()
+              .toString(36)
+              .substring(2, 11)}-${i}`;
+            return (
+              <div
+                key={key}
+                className="absolute w-3 h-3 bg-gradient-to-r from-blue-400/30 to-cyan-400/30 rounded-full animate-float"
+                style={{
+                  left: `${10 + i * 3.6}%`,
+                  top: `${10 + i * 3.2}%`,
+                  animationDelay: `${i * 0.3}s`,
+                  animationDuration: `${15 + i * 0.5}s`,
+                  width: `${3 + (i % 2)}px`,
+                  height: `${3 + (i % 3)}px`,
+                }}
+              />
+            );
+          })}
         </div>
 
         {/* Additional Wave-like Gradient */}
@@ -273,9 +279,11 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-3">
-                <img
+                <Image
                   src="/images/logo.png"
                   alt="Rural Alberta Health Connect"
+                  width={40}
+                  height={40}
                   className="h-10 w-10"
                 />
                 <span className="text-xl font-bold text-gray-900 font-barlow-condensed">
@@ -363,6 +371,15 @@ export default function HomePage() {
                 Learn More
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-3 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105 font-barlow font-semibold tracking-wide"
+                onClick={() => (window.location.href = "../download")}
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Download APK
+              </Button>
             </div>
           </div>
         </section>
@@ -371,9 +388,9 @@ export default function HomePage() {
         <section className="py-16 bg-gradient-to-r from-blue-50/60 via-cyan-50/50 to-blue-50/60 backdrop-blur-sm relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
+              {stats.map((stat) => (
                 <div
-                  key={index}
+                  key={stat.label}
                   className="text-center backdrop-blur-sm bg-white/70 rounded-2xl p-6 hover:scale-105 transition-transform duration-300 shadow-sm"
                 >
                   <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2 font-barlow-condensed">
@@ -408,7 +425,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {services.map((service, index) => (
                 <Card
-                  key={index}
+                  key={service.title}
                   className="bg-white/80 backdrop-blur-sm border-gray-200/50 hover:bg-white/95 transition-all duration-300 hover:scale-105 hover:shadow-xl font-barlow"
                 >
                   <CardHeader>
@@ -429,7 +446,7 @@ export default function HomePage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
                       {service.features.map((feature, featureIndex) => (
                         <div
-                          key={featureIndex}
+                          key={feature}
                           className="flex items-center space-x-2"
                         >
                           <CheckCircle className="h-4 w-4 text-blue-500 flex-shrink-0" />
@@ -447,7 +464,7 @@ export default function HomePage() {
                       <ul className="space-y-2">
                         {service.details.map((detail, detailIndex) => (
                           <li
-                            key={detailIndex}
+                            key={detail}
                             className="text-sm text-gray-600 flex items-start space-x-2 font-barlow"
                           >
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
@@ -500,7 +517,7 @@ export default function HomePage() {
                     },
                   ].map((item, index) => (
                     <div
-                      key={index}
+                      key={item.title}
                       className="flex items-start space-x-3 backdrop-blur-sm bg-white/70 rounded-lg p-4 hover:scale-105 transition-transform duration-300"
                     >
                       <item.icon className="h-6 w-6 text-blue-500 mt-1 flex-shrink-0" />
@@ -540,7 +557,7 @@ export default function HomePage() {
                       },
                     ].map((item, index) => (
                       <div
-                        key={index}
+                        key={item.title}
                         className="flex items-center space-x-4 hover:scale-105 transition-transform duration-300"
                       >
                         <div className={`p-3 ${item.bg} rounded-lg`}>
@@ -583,15 +600,17 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {teamMembers.map((member, index) => (
                 <Card
-                  key={index}
+                  key={member.name}
                   className="bg-white/80 backdrop-blur-sm border-gray-200/50 text-center hover:scale-105 transition-transform duration-300 font-barlow"
                 >
                   <CardHeader>
                     <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                      <img
+                      <Image
                         src={member.image}
                         alt={member.name}
                         className="w-full h-full object-cover"
+                        width={96}
+                        height={96}
                       />
                     </div>
                     <CardTitle className="text-xl text-balance text-gray-900 font-barlow-condensed">
@@ -645,9 +664,11 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="col-span-1 md:col-span-2">
                 <div className="flex items-center space-x-3 mb-4">
-                  <img
+                  <Image
                     src="/images/logo.png"
                     alt="Rural Alberta Health Connect"
+                    width={32}
+                    height={32}
                     className="h-8 w-8"
                   />
                   <span className="text-xl font-bold text-balance text-gray-900 font-barlow-condensed">
@@ -662,7 +683,7 @@ export default function HomePage() {
               </div>
 
               {["Services", "Company"].map((category, index) => (
-                <div key={index}>
+                <div key={category}>
                   <h3 className="font-semibold mb-4 text-gray-800 font-barlow-condensed">
                     {category}
                   </h3>
