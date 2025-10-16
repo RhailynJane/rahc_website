@@ -45,8 +45,8 @@ export default function HomePage() {
       });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    globalThis.addEventListener("mousemove", handleMouseMove);
+    return () => globalThis.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const services = [
@@ -435,7 +435,7 @@ export default function HomePage() {
                 size="lg"
                 variant="outline"
                 className="text-lg px-8 py-3 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105 font-barlow font-semibold tracking-wide"
-                onClick={() => (window.location.href = "../download")}
+                onClick={() => (globalThis.location.href = "../download")}
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download APK
@@ -708,7 +708,7 @@ export default function HomePage() {
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
               onClick={() =>
-                (window.location.href =
+                (globalThis.location.href =
                   "mailto:ruralalbertahealthconnect@gmail.com")
               }
             >
@@ -834,13 +834,25 @@ export default function HomePage() {
 
         {/* Bug Tracker Modal */}
         {showBugModal && (
-          <div
+          <button
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-300"
             onClick={() => setShowBugModal(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                setShowBugModal(false);
+              }
+            }}
           >
             <div
+              role="dialog"
+              aria-modal="true"
               className="bg-gradient-to-br from-white/95 via-blue-50/90 to-cyan-50/90 backdrop-blur-md rounded-2xl shadow-xl max-w-5xl w-full max-h-[85vh] overflow-hidden border border-gray-200/50 animate-in zoom-in-95 duration-300"
               onClick={(e) => e.stopPropagation()}
+              onKeyDown={(e) => {
+                if (e.key === "Escape") {
+                  setShowBugModal(false);
+                }
+              }}
             >
               {/* Modal Header */}
               <div className="relative bg-gradient-to-r from-blue-600/10 via-cyan-500/10 to-blue-600/10 px-6 py-5 border-b border-gray-200/50 flex justify-between items-center backdrop-blur-sm">
@@ -953,12 +965,12 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <p className="text-sm text-gray-700 font-barlow leading-relaxed">
-                    <span className="font-semibold text-blue-600">Sprint 2 in progress:</span> These 39 bugs were identified during Sprint 1 user testing. Over the next 3 weeks, we're systematically addressing critical issues, performance bottlenecks, and UX improvements.
+                    <span className="font-semibold text-blue-600">Sprint 2 in progress:</span> These 39 bugs were identified during Sprint 1 user testing. Over the next 3 weeks, were systematically addressing critical issues, performance bottlenecks, and UX improvements.
                   </p>
                 </div>
               </div>
             </div>
-          </div>
+          </button>
         )}
       </div>
     </div>
