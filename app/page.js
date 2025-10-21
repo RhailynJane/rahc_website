@@ -387,7 +387,7 @@ export default function HomePage() {
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8 font-barlow">
-                {["services", "about", "team", "contact"].map((section) => (
+                {["services", "about", "team", "progress", "contact"].map((section) => (
                   <button
                     key={section}
                     onClick={() =>
@@ -418,7 +418,7 @@ export default function HomePage() {
             {/* Mobile Navigation */}
             {isMenuOpen && (
               <div className="md:hidden py-4 space-y-4 border-t border-gray-200/40 font-barlow">
-                {["services", "about", "team", "contact"].map((section) => (
+                {["services", "about", "team", "progress", "contact"].map((section) => (
                   <button
                     key={section}
                     onClick={() => {
@@ -725,6 +725,125 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Development Progress Section */}
+        <section
+          id="progress"
+          className="py-20 bg-gradient-to-br from-white/70 via-green-50/40 to-blue-50/40 backdrop-blur-sm"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <Badge className="mb-6 bg-green-500/10 text-green-600 border-green-200 backdrop-blur-sm font-barlow font-semibold tracking-wide">
+                Sprint 2 Complete ✅
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-gray-900 font-barlow-condensed">
+                Development Progress
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty font-barlow">
+                Track our journey from user testing feedback to production-ready features. 
+                Transparency in our development process.
+              </p>
+            </div>
+
+            {/* Sprint Stats Cards */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
+              <div className="text-center p-6 bg-green-50/50 rounded-xl border border-green-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-green-600 font-barlow-condensed">52</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Total Bugs Fixed ✓</div>
+              </div>
+              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 font-barlow-condensed">8</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">New Features</div>
+              </div>
+              <div className="text-center p-6 bg-cyan-50/50 rounded-xl border border-cyan-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-cyan-600 font-barlow-condensed">40+</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Total Commits</div>
+              </div>
+              <div className="text-center p-6 bg-purple-50/50 rounded-xl border border-purple-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-purple-600 font-barlow-condensed">1w</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Sprint Duration</div>
+              </div>
+            </div>
+
+            {/* Sprint 2 Highlights */}
+            <div className="bg-gradient-to-r from-green-50/70 via-blue-50/60 to-cyan-50/70 rounded-2xl p-8 border border-green-200/30 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-barlow-condensed text-center">Sprint 2 Highlights</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Mapbox Integration</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Real-time Canadian address autocomplete</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-blue-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Phone Validation</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Smart (XXX) XXX-XXXX formatting system</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-cyan-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle className="h-5 w-5 text-cyan-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Custom Modals</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Professional elevated design system</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-purple-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle className="h-5 w-5 text-purple-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Photo Limits</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">3-photo limit with validation & counter</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Section Validation</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Independent profile section saves</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-blue-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Tracker Search</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Real-time search in daily log & history</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-cyan-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle className="h-5 w-5 text-cyan-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Form Context</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Persists data during navigation</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-purple-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle className="h-5 w-5 text-purple-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Multi-Photo AI</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Improved Gemini assessment accuracy</p>
+                </div>
+              </div>
+            </div>
+
+            {/* View Details Button */}
+            <div className="text-center">
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
+                onClick={() => setShowBugModal(true)}
+              >
+                <Activity className="mr-2 h-5 w-5" />
+                View Detailed Progress Report
+              </Button>
+              <p className="mt-4 text-sm text-gray-600 font-barlow">
+                See all 52 completed fixes and 8 new features • October 15-21, 2025
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section
           id="contact"
@@ -817,81 +936,6 @@ export default function HomePage() {
                   </ul>
                 </div>
               ))}
-            </div>
-
-            {/* Sprint Progress Section - Collapsible */}
-            <div className="border-t border-gray-200/40 mt-8 pt-8">
-              <details className="max-w-4xl mx-auto mb-6">
-                <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700 transition-colors text-center font-barlow font-medium tracking-wide">
-                  Development Progress: Sprint 2 ✅ Completed (Oct 21, 2025)
-                </summary>
-                <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="text-center p-3 bg-green-50/50 rounded-lg border border-green-200/50">
-                    <div className="text-2xl font-bold text-green-600 font-barlow-condensed">52</div>
-                    <div className="text-xs text-gray-600 font-barlow">Total Bugs Fixed ✓</div>
-                  </div>
-                  <div className="text-center p-3 bg-blue-50/50 rounded-lg border border-blue-100/50">
-                    <div className="text-2xl font-bold text-blue-600 font-barlow-condensed">8</div>
-                    <div className="text-xs text-gray-600 font-barlow">New Features</div>
-                  </div>
-                  <div className="text-center p-3 bg-cyan-50/50 rounded-lg border border-cyan-100/50">
-                    <div className="text-2xl font-bold text-cyan-600 font-barlow-condensed">40+</div>
-                    <div className="text-xs text-gray-600 font-barlow">Total Commits</div>
-                  </div>
-                  <div className="text-center p-3 bg-purple-50/50 rounded-lg border border-purple-100/50">
-                    <div className="text-2xl font-bold text-purple-600 font-barlow-condensed">1w</div>
-                    <div className="text-xs text-gray-600 font-barlow">Sprint Duration</div>
-                  </div>
-                </div>
-                
-                {/* Sprint 2 Highlights */}
-                <div className="mt-6 bg-gradient-to-r from-green-50/50 via-blue-50/50 to-cyan-50/50 rounded-xl p-4 border border-green-200/30">
-                  <h4 className="text-sm font-semibold text-gray-800 mb-3 font-barlow-condensed">Sprint 2 Highlights</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-700 font-barlow">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
-                      <span>Mapbox Address Autocomplete</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
-                      <span>Phone Validation System</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
-                      <span>Custom Modal Design</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
-                      <span>3-Photo Upload Limit</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
-                      <span>Section-Specific Validation</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
-                      <span>Tracker Search Feature</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
-                      <span>Multi-Photo AI Assessment</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
-                      <span>SignUp Form Context</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-4 text-center flex flex-col sm:flex-row gap-3 justify-center items-center">
-                  <button
-                    onClick={() => setShowBugModal(true)}
-                    className="text-sm text-blue-600 hover:text-blue-700 underline font-barlow transition-all duration-300 hover:scale-105 cursor-pointer"
-                  >
-                    View all completed fixes & enhancements →
-                  </button>
-                </div>
-              </details>
             </div>
 
             <div className="border-t border-gray-200/40 pt-8 text-center text-gray-600">
