@@ -387,7 +387,7 @@ export default function HomePage() {
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8 font-barlow">
-                {["services", "about", "team", "progress", "contact"].map((section) => (
+                {["services", "about", "team", "guide", "progress", "contact"].map((section) => (
                   <button
                     key={section}
                     onClick={() =>
@@ -418,7 +418,7 @@ export default function HomePage() {
             {/* Mobile Navigation */}
             {isMenuOpen && (
               <div className="md:hidden py-4 space-y-4 border-t border-gray-200/40 font-barlow">
-                {["services", "about", "team", "progress", "contact"].map((section) => (
+                {["services", "about", "team", "guide", "progress", "contact"].map((section) => (
                   <button
                     key={section}
                     onClick={() => {
@@ -721,6 +721,123 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* User Guide Section */}
+        <section
+          id="guide"
+          className="py-20 bg-gradient-to-r from-cyan-50/50 via-blue-50/40 to-purple-50/50 backdrop-blur-sm"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <Badge className="mb-6 bg-purple-500/10 text-purple-600 border-purple-200 backdrop-blur-sm font-barlow font-semibold tracking-wide">
+                Documentation
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-gray-900 font-barlow-condensed">
+                User Guide
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty font-barlow">
+                Complete documentation to help you get started and make the most of Rural Alberta Health Connect.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {/* Getting Started Card */}
+              <Card className="bg-white/80 backdrop-blur-sm border-gray-200/50 hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                <CardHeader>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg text-white">
+                      <ChevronRight className="h-8 w-8" />
+                    </div>
+                    <CardTitle className="text-2xl text-balance text-gray-900 font-barlow-condensed">
+                      Getting Started
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 mb-6 text-pretty">
+                    Learn how to download, install, and set up the app for first-time use. Complete walkthrough of registration, profile setup, and initial configuration.
+                  </CardDescription>
+                  <ul className="space-y-3">
+                    {[
+                      "Download & Installation",
+                      "Account Registration",
+                      "Profile Setup",
+                      "Permission Configuration",
+                      "Emergency Contacts",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                        <span className="text-sm text-gray-700 font-barlow">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Features Guide Card */}
+              <Card className="bg-white/80 backdrop-blur-sm border-gray-200/50 hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                <CardHeader>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white">
+                      <Brain className="h-8 w-8" />
+                    </div>
+                    <CardTitle className="text-2xl text-balance text-gray-900 font-barlow-condensed">
+                      Feature Guides
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 mb-6 text-pretty">
+                    Detailed guides for each feature including AI assessment, health tracking, emergency services, and vision testing.
+                  </CardDescription>
+                  <ul className="space-y-3">
+                    {[
+                      "AI Symptom Assessment",
+                      "Daily Health Logging",
+                      "Emergency Services Locator",
+                      "Vision Testing",
+                      "Health History Tracking",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-purple-500 flex-shrink-0" />
+                        <span className="text-sm text-gray-700 font-barlow">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* CTA Section */}
+            <div className="bg-gradient-to-r from-blue-50/70 via-purple-50/60 to-cyan-50/70 rounded-2xl p-8 border border-blue-200/30 shadow-sm text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 font-barlow-condensed">
+                Ready to Get Started?
+              </h3>
+              <p className="text-gray-600 mb-6 font-barlow max-w-2xl mx-auto">
+                Access the complete user guide with step-by-step instructions, screenshots, and helpful tips for every feature.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
+                  onClick={() => window.location.href = '/user-guide'}
+                >
+                  <Database className="mr-2 h-5 w-5" />
+                  View Full User Guide
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
+                  onClick={() => (globalThis.location.href = "../download")}
+                >
+                  <Download className="mr-2 h-5 w-5" />
+                  Download App
+                </Button>
+              </div>
             </div>
           </div>
         </section>
