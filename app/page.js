@@ -29,6 +29,7 @@ import {
   Activity,
   Globe,
   Download,
+  AlertTriangle,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -281,8 +282,36 @@ export default function HomePage() {
     { title: "Multi-Photo AI Assessment", description: "Fixed Gemini API to properly handle multiple photos", impact: "More accurate assessments" },
   ];
 
-  // Sprint 3 bugs will be added here
-  const sprintBugs = {};
+  // Sprint 3 - Current Sprint (Nov 1-28, 2025)
+  const sprint3Bugs = {
+    "Critical Priority": [
+      { id: 1, title: "Emergency call cannot be cancelled quickly", reporter: "Joy Wong, Yue", testCase: "TC-021", description: "Cancellation requires two steps, 911 call connects before cancel completes", priority: "P1" },
+      { id: 5, title: "New entries not saved offline", reporter: "Sean Bauzon", testCase: "TC-028", description: "Health entries created offline are lost when connection restored", priority: "P1" },
+    ],
+    "High Priority": [
+      { id: 2, title: "Profile information not displaying consistently", reporter: "Sean Bauzon", testCase: "TC-004", description: "User profile data entered during registration displays intermittently", priority: "P2" },
+      { id: 3, title: "Notification reminders not functioning", reporter: "Sean Bauzon, Joy Wong", testCase: "TC-024", description: "Reminders save successfully but notifications never trigger at scheduled time", priority: "P2" },
+      { id: 4, title: "Location services toggle malfunction", reporter: "Sean Bauzon", testCase: "TC-026", description: "Toggle only visual, location services remain active after attempting to disable", priority: "P2" },
+    ],
+    "Medium/Low Priority": [
+      { id: 6, title: "Date picker malfunction in Health Tracker", reporter: "Yue, Sean Bauzon", testCase: "TC-018", description: "Second date picker clickable but non-functional, doesn't close when clicking outside", priority: "P3" },
+      { id: 7, title: "Offline indicator only shows on dashboard", reporter: "Sean Bauzon", testCase: "TC-027", description: "Other tabs don't show offline status, confusing for users", priority: "P4" },
+    ],
+    "Additional Issues": [
+      { title: "Invalid email validation", reporter: "Sean Bauzon", testCase: "TC-001", description: "System allows registration with invalid email addresses" },
+      { title: "Offline maps unclear access", reporter: "Joy Wong, Yue", testCase: "TC-022", description: "Download completes but unclear where to access offline maps" },
+      { title: "Notifications list navigation", reporter: "Joy Wong, Sean Bauzon", testCase: "TC-023", description: "Unable to locate how to add/generate notifications" },
+      { title: "Image upload inconsistent feedback", reporter: "Sean Bauzon", testCase: "TC-016", description: "'No images added' message during upload, but images appear later" },
+      { title: "Email verification missing", reporter: "Joy Wong, Yue", testCase: "TC-001", description: "No email verification step during registration" },
+      { title: "iOS password autofill not working", reporter: "Joy Wong", testCase: "TC-004", description: "iOS autofill inactive, requires manual credential entry" },
+      { title: "Keyboard dismissal issue", reporter: "Sean Bauzon", testCase: "TC-011", description: "Cannot dismiss keyboard after typing in AI Assessment" },
+      { title: "iOS performance slower than Android", reporter: "Joy Wong", testCase: "TC-019", description: "Loading clinic data 3-4 seconds slower on iOS" },
+      { title: "Clinic list not sorted by proximity", reporter: "Joy Wong", testCase: "TC-020", description: "Same list appears regardless of location, not showing closest first" },
+      { title: "Profile edit validation missing", reporter: "Sean Bauzon", testCase: "TC-026", description: "Allows saving invalid data without error messages" },
+    ],
+  };
+
+  const sprintBugs = sprint3Bugs;
 
   const teamMembers = [
     {
@@ -845,12 +874,12 @@ export default function HomePage() {
         {/* Development Progress Section */}
         <section
           id="progress"
-          className="py-20 bg-gradient-to-br from-white/70 via-green-50/40 to-blue-50/40 backdrop-blur-sm"
+          className="py-20 bg-gradient-to-br from-white/70 via-orange-50/40 to-blue-50/40 backdrop-blur-sm"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <Badge className="mb-6 bg-green-500/10 text-green-600 border-green-200 backdrop-blur-sm font-barlow font-semibold tracking-wide">
-                Sprint 2 Complete ✅
+              <Badge className="mb-6 bg-orange-500/10 text-orange-600 border-orange-200 backdrop-blur-sm font-barlow font-semibold tracking-wide">
+                Sprint 3 In Progress 🚧
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-gray-900 font-barlow-condensed">
                 Development Progress
@@ -861,85 +890,117 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Sprint Stats Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-              <div className="text-center p-6 bg-green-50/50 rounded-xl border border-green-200/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-green-600 font-barlow-condensed">52</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Total Bugs Fixed ✓</div>
+            {/* Sprint Timeline */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+              <div className="text-center p-6 bg-green-50/50 rounded-xl border border-green-200/50">
+                <div className="text-lg font-bold text-green-600 font-barlow-condensed">Sprint 1 ✅</div>
+                <div className="text-xs text-gray-600 font-barlow mt-2">Sep 20 - Oct 10</div>
+                <div className="text-xs text-gray-500 mt-1">Foundation Complete</div>
               </div>
-              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-100/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 font-barlow-condensed">8</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">New Features</div>
+              <div className="text-center p-6 bg-green-50/50 rounded-xl border border-green-200/50">
+                <div className="text-lg font-bold text-green-600 font-barlow-condensed">Sprint 2 ✅</div>
+                <div className="text-xs text-gray-600 font-barlow mt-2">Oct 11 - Oct 31</div>
+                <div className="text-xs text-gray-500 mt-1">52 Bugs Fixed</div>
               </div>
-              <div className="text-center p-6 bg-cyan-50/50 rounded-xl border border-cyan-100/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-cyan-600 font-barlow-condensed">40+</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Total Commits</div>
+              <div className="text-center p-6 bg-orange-50/70 rounded-xl border border-orange-200/50 ring-2 ring-orange-300/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-lg font-bold text-orange-600 font-barlow-condensed">Sprint 3 🚧</div>
+                <div className="text-xs text-gray-600 font-barlow mt-2">Nov 1 - Nov 28</div>
+                <div className="text-xs text-orange-600 font-semibold mt-1">Current Sprint</div>
               </div>
-              <div className="text-center p-6 bg-purple-50/50 rounded-xl border border-purple-100/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-purple-600 font-barlow-condensed">1w</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Sprint Duration</div>
+              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-100/50">
+                <div className="text-lg font-bold text-blue-600 font-barlow-condensed">Sprint 4 📋</div>
+                <div className="text-xs text-gray-600 font-barlow mt-2">Nov 29 - Dec 12</div>
+                <div className="text-xs text-gray-500 mt-1">Final Presentation</div>
               </div>
             </div>
 
-            {/* Sprint 2 Highlights */}
-            <div className="bg-gradient-to-r from-green-50/70 via-blue-50/60 to-cyan-50/70 rounded-2xl p-8 border border-green-200/30 shadow-sm mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-barlow-condensed text-center">Sprint 2 Highlights</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+            {/* Sprint 3 Stats Cards */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
+              <div className="text-center p-6 bg-red-50/50 rounded-xl border border-red-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-red-600 font-barlow-condensed">2</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Critical Bugs</div>
+              </div>
+              <div className="text-center p-6 bg-orange-50/50 rounded-xl border border-orange-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-orange-600 font-barlow-condensed">3</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">High Priority</div>
+              </div>
+              <div className="text-center p-6 bg-yellow-50/50 rounded-xl border border-yellow-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-yellow-600 font-barlow-condensed">2</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Medium/Low</div>
+              </div>
+              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 font-barlow-condensed">10</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Additional Issues</div>
+              </div>
+            </div>
+
+            {/* Sprint 3 Focus Areas */}
+            <div className="bg-gradient-to-r from-orange-50/70 via-yellow-50/60 to-blue-50/70 rounded-2xl p-8 border border-orange-200/30 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-barlow-condensed text-center">Sprint 3 Focus Areas</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="bg-white/70 rounded-xl p-4 border border-red-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Mapbox Integration</h4>
+                    <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Emergency Call Fix</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Real-time Canadian address autocomplete</p>
+                  <p className="text-sm text-gray-600 font-barlow">Single-tap cancel within 2 seconds</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-orange-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Database className="h-5 w-5 text-orange-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Offline Data Sync</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Save entries created offline locally</p>
+                </div>
+                <div className="bg-white/70 rounded-xl p-4 border border-yellow-100/50 hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Brain className="h-5 w-5 text-yellow-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Offline AI Assessment</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">Computer vision without internet</p>
                 </div>
                 <div className="bg-white/70 rounded-xl p-4 border border-blue-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Phone Validation</h4>
+                    <Activity className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Notification System</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Smart (XXX) XXX-XXXX formatting system</p>
+                  <p className="text-sm text-gray-600 font-barlow">Fix reminder trigger functionality</p>
                 </div>
                 <div className="bg-white/70 rounded-xl p-4 border border-cyan-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-cyan-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Custom Modals</h4>
+                    <Shield className="h-5 w-5 text-cyan-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Help & Support</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Professional elevated design system</p>
+                  <p className="text-sm text-gray-600 font-barlow">New feature for user assistance</p>
                 </div>
                 <div className="bg-white/70 rounded-xl p-4 border border-purple-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-purple-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Photo Limits</h4>
+                    <MapPin className="h-5 w-5 text-purple-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Location Toggle Fix</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">3-photo limit with validation & counter</p>
+                  <p className="text-sm text-gray-600 font-barlow">Functional on/off location services</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Section Validation</h4>
-                  </div>
-                  <p className="text-sm text-gray-600 font-barlow">Independent profile section saves</p>
+              </div>
+            </div>
+
+            {/* Sprint 2 Highlights (Collapsed Summary) */}
+            <div className="bg-gradient-to-r from-green-50/50 via-blue-50/40 to-cyan-50/50 rounded-2xl p-6 border border-green-200/20 shadow-sm mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 font-barlow-condensed text-center">Sprint 2 Achievements ✅</h3>
+              <p className="text-center text-gray-600 text-sm font-barlow mb-4">
+                52 bugs fixed • 8 new features • 1 week sprint (Oct 11-31, 2025)
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="bg-white/60 rounded-lg p-3 border border-green-100/50 text-center">
+                  <p className="text-xs text-gray-700 font-barlow">Mapbox Integration</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-blue-100/50 hover:scale-105 transition-transform duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Tracker Search</h4>
-                  </div>
-                  <p className="text-sm text-gray-600 font-barlow">Real-time search in daily log & history</p>
+                <div className="bg-white/60 rounded-lg p-3 border border-blue-100/50 text-center">
+                  <p className="text-xs text-gray-700 font-barlow">Phone Validation</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-cyan-100/50 hover:scale-105 transition-transform duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-cyan-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Form Context</h4>
-                  </div>
-                  <p className="text-sm text-gray-600 font-barlow">Persists data during navigation</p>
+                <div className="bg-white/60 rounded-lg p-3 border border-cyan-100/50 text-center">
+                  <p className="text-xs text-gray-700 font-barlow">Custom Modals</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-purple-100/50 hover:scale-105 transition-transform duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-purple-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Multi-Photo AI</h4>
-                  </div>
-                  <p className="text-sm text-gray-600 font-barlow">Improved Gemini assessment accuracy</p>
+                <div className="bg-white/60 rounded-lg p-3 border border-purple-100/50 text-center">
+                  <p className="text-xs text-gray-700 font-barlow">Photo Limits</p>
                 </div>
               </div>
             </div>
@@ -952,10 +1013,10 @@ export default function HomePage() {
                 onClick={() => setShowBugModal(true)}
               >
                 <Activity className="mr-2 h-5 w-5" />
-                View Detailed Progress Report
+                View Sprint 3 Bug Tracker
               </Button>
               <p className="mt-4 text-sm text-gray-600 font-barlow">
-                See all 52 completed fixes and 8 new features • October 15-21, 2025
+                See all current bugs and issues • November 1-28, 2025
               </p>
             </div>
           </div>
@@ -1069,14 +1130,15 @@ export default function HomePage() {
 
         {/* Bug Tracker Modal */}
         {showBugModal && (
-          <button
+          <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-300"
             onClick={() => setShowBugModal(false)}
             onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
+              if (e.key === "Escape") {
                 setShowBugModal(false);
               }
             }}
+            role="presentation"
           >
             <div
               role="dialog"
@@ -1090,33 +1152,17 @@ export default function HomePage() {
               }}
             >
               {/* Modal Header */}
-              <div className="relative bg-gradient-to-r from-blue-600/10 via-cyan-500/10 to-blue-600/10 px-6 py-5 border-b border-gray-200/50 flex justify-between items-center backdrop-blur-sm">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-cyan-500/5 animate-pulse"></div>
+              <div className="relative bg-gradient-to-r from-orange-600/10 via-yellow-500/10 to-blue-600/10 px-6 py-5 border-b border-gray-200/50 flex justify-between items-center backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-yellow-500/5 animate-pulse"></div>
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold text-gray-900 font-barlow-condensed tracking-wide">
-                    Sprint 2 Complete - All Issues Resolved ✅
+                    Sprint 3 Bug Tracker 🚧
                   </h3>
                   <p className="text-sm text-gray-600 font-barlow mt-1">
-                    Team of 2 • 1 week • 52 bugs fixed • 8 new features 🎉
+                    Team of 2 • In Progress • 17 total issues • November 1-28, 2025
                   </p>
                 </div>
                 <div className="relative z-10 flex items-center gap-3">
-                  <a
-                    href="/UserTestingSummary.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 hover:bg-white/80 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg group cursor-pointer"
-                    title="View User Testing Summary PDF"
-                  >
-                    <svg className="h-5 w-5 text-red-600 group-hover:text-red-700 transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
-                      <path d="M14 2v6h6"/>
-                      <path d="M10 12h4v1h-4v-1zm0 2h4v1h-4v-1zm0 2h4v1h-4v-1z" fill="white"/>
-                    </svg>
-                    <span className="text-sm font-barlow text-gray-700 group-hover:text-gray-900 transition-colors">
-                      Testing Report
-                    </span>
-                  </a>
                   <button
                     onClick={() => setShowBugModal(false)}
                     className="p-2.5 hover:bg-white/80 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg group"
@@ -1128,24 +1174,135 @@ export default function HomePage() {
 
               {/* Modal Content */}
               <div className="overflow-y-auto max-h-[calc(85vh-100px)] p-6 scroll-smooth">
-                {/* Sprint 2 Completed Section */}
-                <div className="mb-8 p-5 bg-gradient-to-r from-green-50/90 via-blue-50/80 to-cyan-50/90 backdrop-blur-sm rounded-xl border border-green-200/50 shadow-sm">
+                {/* Sprint 3 Current Status */}
+                <div className="mb-8 p-5 bg-gradient-to-r from-orange-50/90 via-yellow-50/80 to-blue-50/90 backdrop-blur-sm rounded-xl border border-orange-200/50 shadow-sm">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-white" />
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
+                      <Activity className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed">Sprint 2 Complete! 🎉</h4>
-                      <p className="text-sm text-gray-600 font-barlow">52 bugs fixed • 8 new features • 40+ commits • October 15-21, 2025 (1 week)</p>
+                      <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed">Sprint 3 In Progress 🚧</h4>
+                      <p className="text-sm text-gray-600 font-barlow">17 issues from user testing • November 1-28, 2025</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-4 gap-3 mt-4">
+                    <div className="bg-white/70 rounded-lg p-3 text-center border border-red-100">
+                      <div className="text-2xl font-bold text-red-600 font-barlow-condensed">2</div>
+                      <div className="text-xs text-gray-600 font-barlow">Critical (P1)</div>
+                    </div>
+                    <div className="bg-white/70 rounded-lg p-3 text-center border border-orange-100">
+                      <div className="text-2xl font-bold text-orange-600 font-barlow-condensed">3</div>
+                      <div className="text-xs text-gray-600 font-barlow">High (P2)</div>
+                    </div>
+                    <div className="bg-white/70 rounded-lg p-3 text-center border border-yellow-100">
+                      <div className="text-2xl font-bold text-yellow-600 font-barlow-condensed">2</div>
+                      <div className="text-xs text-gray-600 font-barlow">Med/Low (P3-4)</div>
+                    </div>
+                    <div className="bg-white/70 rounded-lg p-3 text-center border border-blue-100">
+                      <div className="text-2xl font-bold text-blue-600 font-barlow-condensed">10</div>
+                      <div className="text-xs text-gray-600 font-barlow">Additional</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Completed Bugs List */}
+                {/* Current Sprint Bugs */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-bold text-orange-700 mb-4 font-barlow-condensed flex items-center gap-2">
+                    <Activity className="h-5 w-5" />
+                    Current Sprint Issues ({Object.values(sprintBugs).reduce((sum, bugs) => sum + bugs.length, 0)})
+                  </h3>
+                  <div className="space-y-6">
+                    {Object.entries(sprintBugs).map(([category, bugs]) => (
+                      <div key={category}>
+                        <h4 className="text-base font-semibold text-gray-800 mb-3 pb-2 border-l-4 border-orange-500 pl-3 font-barlow-condensed tracking-wide">
+                          {category} ({bugs.length})
+                        </h4>
+                        <div className="space-y-2.5">
+                          {bugs.map((bug, index) => (
+                            <div
+                              key={bug.id || index}
+                              onClick={() => setExpandedBugId(expandedBugId === `${category}-${index}` ? null : `${category}-${index}`)}
+                              className={`group relative p-4 rounded-xl cursor-pointer transition-all duration-300 ease-in-out ${
+                                expandedBugId === `${category}-${index}`
+                                  ? "bg-gradient-to-br from-orange-50/95 to-yellow-50/90 border-l-4 border-orange-500 shadow-lg"
+                                  : "bg-white/80 backdrop-blur-sm border-l-2 border-transparent hover:bg-white/95 hover:border-l-orange-300 hover:shadow-md"
+                              }`}
+                            >
+                              <div className="flex items-start justify-between gap-3">
+                                <div className="flex items-start gap-3 flex-1 min-w-0">
+                                  {category === "Critical Priority" && (
+                                    <AlertTriangle className="h-4 w-4 text-red-600 flex-shrink-0 mt-0.5" />
+                                  )}
+                                  {category === "High Priority" && (
+                                    <AlertTriangle className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                                  )}
+                                  {(category === "Medium/Low Priority" || category === "Additional Issues") && (
+                                    <Activity className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                                  )}
+                                  <div className="flex-1 min-w-0">
+                                    <div className="flex items-center gap-2 flex-wrap mb-1">
+                                      {bug.id && (
+                                        <span className="text-xs font-mono text-gray-500 flex-shrink-0 font-barlow bg-gray-100/80 px-2 py-1 rounded-md">
+                                          #{bug.id.toString().padStart(2, "0")}
+                                        </span>
+                                      )}
+                                      {bug.priority && (
+                                        <Badge className={`text-xs font-barlow font-medium px-2 py-0.5 ${
+                                          bug.priority === "P1" ? "bg-red-50 text-red-700 border-red-200" :
+                                          bug.priority === "P2" ? "bg-orange-50 text-orange-700 border-orange-200" :
+                                          "bg-yellow-50 text-yellow-700 border-yellow-200"
+                                        }`}>
+                                          {bug.priority}
+                                        </Badge>
+                                      )}
+                                      {bug.testCase && (
+                                        <span className="text-xs text-gray-500 font-barlow">{bug.testCase}</span>
+                                      )}
+                                    </div>
+                                    <span className="text-sm font-barlow text-gray-900 font-medium block">
+                                      {bug.title}
+                                    </span>
+                                  </div>
+                                </div>
+                                <ChevronRight
+                                  className={`h-4 w-4 transition-all duration-300 ease-out flex-shrink-0 ${
+                                    expandedBugId === `${category}-${index}`
+                                      ? "rotate-90 text-orange-600"
+                                      : "text-gray-400 group-hover:text-orange-500"
+                                  }`}
+                                />
+                              </div>
+                              {expandedBugId === `${category}-${index}` && bug.description && (
+                                <div className="mt-4 pt-4 border-t border-orange-200/50">
+                                  <p className="text-sm text-gray-700 leading-relaxed font-barlow">
+                                    {bug.description}
+                                  </p>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sprint 2 Completed Summary */}
+                <div className="mb-8 p-5 bg-gradient-to-r from-green-50/70 via-blue-50/60 to-cyan-50/70 backdrop-blur-sm rounded-xl border border-green-200/30 shadow-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed">Previous Sprint (Sprint 2) - All Resolved ✅</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow">
+                    52 bugs fixed • 8 new features added • October 11-31, 2025
+                  </p>
+                </div>
+
+                {/* Original Sprint 2 Completed Bugs - Now Collapsed */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold text-green-700 mb-4 font-barlow-condensed flex items-center gap-2">
                     <CheckCircle className="h-5 w-5" />
-                    All Issues Resolved (52)
+                    Sprint 2 Resolved Issues (52)
                   </h3>
                   <div className="space-y-6">
                     {Object.entries(sprint2Completed).map(([category, bugs]) => (
@@ -1232,7 +1389,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </button>
+          </div>
         )}
       </div>
     </div>
