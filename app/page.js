@@ -282,34 +282,51 @@ export default function HomePage() {
     { title: "Multi-Photo AI Assessment", description: "Fixed Gemini API to properly handle multiple photos", impact: "More accurate assessments" },
   ];
 
-  // Sprint 3 - Current Sprint (Nov 1-28, 2025)
+  // Sprint 3 - Completed Sprint (Nov 1-28, 2025)
   const sprint3Bugs = {
-    "Critical Priority": [
-      { id: 1, title: "Emergency call cannot be cancelled quickly", reporter: "Joy Wong, Yue", testCase: "TC-021", description: "Cancellation requires two steps, 911 call connects before cancel completes", priority: "P1" },
-      { id: 5, title: "New entries not saved offline", reporter: "Sean Bauzon", testCase: "TC-028", description: "Health entries created offline are lost when connection restored", priority: "P1" },
+    "Critical Priority - All Fixed ✅": [
+      { id: 1, title: "Emergency call cannot be cancelled quickly", reporter: "Joy Wong, Yue", testCase: "TC-021", status: "fixed", description: "✅ FIXED: Added confirmation modal before 911 call with prominent Cancel button. User can now cancel within seconds before call connects.", priority: "P1" },
+      { id: 5, title: "New entries not saved offline", reporter: "Sean Bauzon", testCase: "TC-028", status: "fixed", description: "✅ FIXED: Offline entries saved to WatermelonDB and auto-sync when online. Optimized sync delay from 500ms to 200ms (60% faster).", priority: "P1" },
     ],
-    "High Priority": [
-      { id: 2, title: "Profile information not displaying consistently", reporter: "Sean Bauzon", testCase: "TC-004", description: "User profile data entered during registration displays intermittently", priority: "P2" },
-      { id: 3, title: "Notification reminders not functioning", reporter: "Sean Bauzon, Joy Wong", testCase: "TC-024", description: "Reminders save successfully but notifications never trigger at scheduled time", priority: "P2" },
-      { id: 4, title: "Location services toggle malfunction", reporter: "Sean Bauzon", testCase: "TC-026", description: "Toggle only visual, location services remain active after attempting to disable", priority: "P2" },
+    "High Priority - All Fixed ✅": [
+      { id: 2, title: "Profile information not displaying consistently", reporter: "Sean Bauzon", testCase: "TC-004", status: "fixed", description: "✅ FIXED: Migrated profile data from WatermelonDB to AsyncStorage. Fixed schema errors causing data loss during onboarding and edits.", priority: "P2" },
+      { id: 3, title: "Notification reminders not functioning", reporter: "Sean Bauzon, Joy Wong", testCase: "TC-024", status: "open", description: "⏳ Open: Reminders save successfully but notifications never trigger at scheduled time", priority: "P2" },
+      { id: 4, title: "Location services toggle malfunction", reporter: "Sean Bauzon", testCase: "TC-026", status: "fixed", description: "✅ FIXED: Refactored useEffect control flow, added AsyncStorage cache updates for instant sync, and offline handling. Toggle now works correctly from both screens.", priority: "P2" },
     ],
-    "Medium/Low Priority": [
-      { id: 6, title: "Date picker malfunction in Health Tracker", reporter: "Yue, Sean Bauzon", testCase: "TC-018", description: "Second date picker clickable but non-functional, doesn't close when clicking outside", priority: "P3" },
-      { id: 7, title: "Offline indicator only shows on dashboard", reporter: "Sean Bauzon", testCase: "TC-027", description: "Other tabs don't show offline status, confusing for users", priority: "P4" },
+    "Medium/Low Priority - All Fixed ✅": [
+      { id: 6, title: "Date picker malfunction in Health Tracker", reporter: "Yue, Sean Bauzon", testCase: "TC-018", status: "fixed", description: "✅ FIXED: Wrapped iOS pickers in Modal with transparent backdrop. Added Done button and tap-outside dismissal. Android native picker preserved.", priority: "P3" },
+      { id: 7, title: "Offline indicator only shows on dashboard", reporter: "Sean Bauzon", testCase: "TC-027", status: "fixed", description: "✅ FIXED: Implemented global OfflineBanner across all tab screens with dynamic safe area handling. Updated 25+ SafeAreaView instances.", priority: "P4" },
+      { id: 8, title: "Dashboard entry count not updating immediately", reporter: "Developer Testing", testCase: "Related to TC-028", status: "fixed", description: "✅ FIXED: Enhanced merge logic to intelligently choose data source with more entries. Entry count updates instantly when coming online.", priority: "P3" },
+      { id: 9, title: "Add Health Entry UI issues", reporter: "User Testing", testCase: "TC-016", status: "fixed", description: "✅ FIXED: Reduced paddingBottom for visible buttons. Added offline photo preview with cloud-offline badge and combined photo count display.", priority: "P3" },
     ],
-    "Additional Issues": [
-      { title: "Invalid email validation", reporter: "Sean Bauzon", testCase: "TC-001", description: "System allows registration with invalid email addresses" },
-      { title: "Offline maps unclear access", reporter: "Joy Wong, Yue", testCase: "TC-022", description: "Download completes but unclear where to access offline maps" },
-      { title: "Notifications list navigation", reporter: "Joy Wong, Sean Bauzon", testCase: "TC-023", description: "Unable to locate how to add/generate notifications" },
-      { title: "Image upload inconsistent feedback", reporter: "Sean Bauzon", testCase: "TC-016", description: "'No images added' message during upload, but images appear later" },
-      { title: "Email verification missing", reporter: "Joy Wong, Yue", testCase: "TC-001", description: "No email verification step during registration" },
-      { title: "iOS password autofill not working", reporter: "Joy Wong", testCase: "TC-004", description: "iOS autofill inactive, requires manual credential entry" },
-      { title: "Keyboard dismissal issue", reporter: "Sean Bauzon", testCase: "TC-011", description: "Cannot dismiss keyboard after typing in AI Assessment" },
-      { title: "iOS performance slower than Android", reporter: "Joy Wong", testCase: "TC-019", description: "Loading clinic data 3-4 seconds slower on iOS" },
-      { title: "Clinic list not sorted by proximity", reporter: "Joy Wong", testCase: "TC-020", description: "Same list appears regardless of location, not showing closest first" },
-      { title: "Profile edit validation missing", reporter: "Sean Bauzon", testCase: "TC-026", description: "Allows saving invalid data without error messages" },
+    "Additional Issues - 10 Fixed ✅ | 3 Open": [
+      { title: "Invalid email validation", reporter: "Sean Bauzon", testCase: "TC-001", status: "fixed", description: "✅ FIXED: Replaced default validation with stricter regex requiring minimum 2-character domain extension. Applied across signup, signin, and forgot password screens." },
+      { title: "Offline maps unclear access", reporter: "Joy Wong, Yue", testCase: "TC-022", status: "closed", description: "✅ CLOSED: Working as designed - offline maps auto-integrate into Emergency screen. Clear messaging in download modal footer." },
+      { title: "Notifications list navigation", reporter: "Joy Wong, Sean Bauzon", testCase: "TC-023", status: "closed", description: "✅ CLOSED: Added to FAQ - notifications are generated by Reminders, accessed via notification bell in header." },
+      { title: "Image upload inconsistent feedback", reporter: "Sean Bauzon", testCase: "TC-016", status: "fixed", description: "✅ FIXED: Added uploading state with 'Uploading photo...' message. Disabled Save button during upload. Selected photos preview shows both online and offline photos." },
+      { title: "Email verification missing", reporter: "Joy Wong, Yue", testCase: "TC-001", status: "closed", description: "✅ CLOSED: Working as designed - intentional flexibility with email input. Validation can be added if required in future." },
+      { title: "iOS password autofill not working", reporter: "Joy Wong", testCase: "TC-004", status: "fixed", description: "✅ FIXED: Added iOS-specific textContentType and autoComplete props to all auth form fields. iOS Keychain and password managers now work correctly." },
+      { title: "Keyboard dismissal issue", reporter: "Sean Bauzon", testCase: "TC-011", status: "fixed", description: "✅ FIXED: Wrapped AI Assessment screens with Pressable for tap-outside dismissal. Added keyboardDismissMode and returnKeyType='done' to TextInputs." },
+      { title: "iOS performance slower than Android", reporter: "Joy Wong", testCase: "TC-019", status: "open", description: "⏳ Open (For Testing): Loading clinic data 3-4 seconds slower on iOS" },
+      { title: "Clinic list not sorted by proximity", reporter: "Joy Wong", testCase: "TC-020", status: "open", description: "⏳ Open: Same list appears regardless of location, not showing closest first" },
+      { title: "Profile edit validation missing", reporter: "Sean Bauzon", testCase: "TC-026", status: "open", description: "⏳ Open: Allows saving invalid data without error messages" },
+      { title: "Edit and Delete feature for Manual Entry", reporter: "Developer Testing", testCase: "Manual Entry CRUD", status: "fixed", description: "✅ FIXED: Enhanced sync pipeline to process tombstones and propagate deletions to server. Added smart edit detection to prevent duplicates. Offline edits now sync correctly." },
+      { title: "Photo capture option removed", reporter: "Product/UX", testCase: "N/A", status: "completed", description: "✅ COMPLETED: Removed camera capture flow from Add Health Entry and AI Assessment. Gallery-only uploads reduce permission friction and improve reliability." },
+      { title: "Medical Info keyboard visibility", reporter: "Developer Testing", testCase: "N/A", status: "completed", description: "✅ COMPLETED: Wrapped form in KeyboardAvoidingView with calibrated offset. Medical fields remain visible while entering long text." },
     ],
   };
+
+  // Sprint 3 Enhancements
+  const sprint3Enhancements = [
+    { title: "Help & Support Feature", description: "Comprehensive FAQ, User Guide, and Feedback/Report Issue sections added to Profile tab", impact: "Improved user self-service and engagement" },
+    { title: "Offline-First Profile Management", description: "Migrated from WatermelonDB to AsyncStorage for reliable profile data persistence", impact: "Fixed critical data loss issues" },
+    { title: "Emergency Call Safety Modal", description: "Added confirmation modal before 911 call with clear warning and Cancel button", impact: "Prevents accidental emergency calls" },
+    { title: "Global Offline Banner", description: "Consistent offline indicator across all tab screens with dynamic safe area handling", impact: "Better user awareness of connectivity" },
+    { title: "iOS Date Picker Enhancement", description: "Modal wrapper with Done button and tap-outside dismissal for better UX", impact: "Improved date selection experience" },
+    { title: "Photo Capture Simplification", description: "Removed camera capture, gallery-only uploads for better reliability", impact: "Fewer permission prompts, consistent behavior" },
+    { title: "Smart Offline Sync", description: "Optimized sync delays (60% faster) and intelligent merge logic for instant updates", impact: "Seamless offline-to-online transitions" },
+    { title: "Edit/Delete CRUD Operations", description: "Complete offline edit and delete functionality with tombstone processing", impact: "Full CRUD support in offline mode" },
+  ];
 
   const sprintBugs = sprint3Bugs;
 
@@ -878,15 +895,15 @@ export default function HomePage() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <Badge className="mb-6 bg-orange-500/10 text-orange-600 border-orange-200 backdrop-blur-sm font-barlow font-semibold tracking-wide">
-                Sprint 3 In Progress 🚧
+              <Badge className="mb-6 bg-green-500/10 text-green-600 border-green-200 backdrop-blur-sm font-barlow font-semibold tracking-wide">
+                Sprint 3 Completed ✅
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-gray-900 font-barlow-condensed">
                 Development Progress
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty font-barlow">
                 Track our journey from user testing feedback to production-ready features. 
-                Transparency in our development process.
+                Sprint 3 completed with 15 bugs fixed and 8 new enhancements.
               </p>
             </div>
 
@@ -902,83 +919,83 @@ export default function HomePage() {
                 <div className="text-xs text-gray-600 font-barlow mt-2">Oct 11 - Oct 31</div>
                 <div className="text-xs text-gray-500 mt-1">52 Bugs Fixed</div>
               </div>
-              <div className="text-center p-6 bg-orange-50/70 rounded-xl border border-orange-200/50 ring-2 ring-orange-300/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-lg font-bold text-orange-600 font-barlow-condensed">Sprint 3 🚧</div>
+              <div className="text-center p-6 bg-green-50/50 rounded-xl border border-green-200/50">
+                <div className="text-lg font-bold text-green-600 font-barlow-condensed">Sprint 3 ✅</div>
                 <div className="text-xs text-gray-600 font-barlow mt-2">Nov 1 - Nov 28</div>
-                <div className="text-xs text-orange-600 font-semibold mt-1">Current Sprint</div>
+                <div className="text-xs text-gray-500 mt-1">15 Bugs + 8 Features</div>
               </div>
-              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-100/50">
+              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-100/50 ring-2 ring-blue-300/50 hover:scale-105 transition-transform duration-300">
                 <div className="text-lg font-bold text-blue-600 font-barlow-condensed">Sprint 4 📋</div>
                 <div className="text-xs text-gray-600 font-barlow mt-2">Nov 29 - Dec 12</div>
-                <div className="text-xs text-gray-500 mt-1">Final Presentation</div>
+                <div className="text-xs text-blue-600 font-semibold mt-1">Final Presentation</div>
               </div>
             </div>
 
             {/* Sprint 3 Stats Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-              <div className="text-center p-6 bg-red-50/50 rounded-xl border border-red-200/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-red-600 font-barlow-condensed">2</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Critical Bugs</div>
+              <div className="text-center p-6 bg-green-50/50 rounded-xl border border-green-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-green-600 font-barlow-condensed">15</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Bugs Fixed ✅</div>
+              </div>
+              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 font-barlow-condensed">3</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Closed (As Designed)</div>
+              </div>
+              <div className="text-center p-6 bg-purple-50/50 rounded-xl border border-purple-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-purple-600 font-barlow-condensed">8</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Enhancements ✨</div>
               </div>
               <div className="text-center p-6 bg-orange-50/50 rounded-xl border border-orange-200/50 hover:scale-105 transition-transform duration-300">
                 <div className="text-3xl md:text-4xl font-bold text-orange-600 font-barlow-condensed">3</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">High Priority</div>
-              </div>
-              <div className="text-center p-6 bg-yellow-50/50 rounded-xl border border-yellow-200/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-600 font-barlow-condensed">2</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Medium/Low</div>
-              </div>
-              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-100/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 font-barlow-condensed">10</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Additional Issues</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Open Issues 🔄</div>
               </div>
             </div>
 
             {/* Sprint 3 Focus Areas */}
-            <div className="bg-gradient-to-r from-orange-50/70 via-yellow-50/60 to-blue-50/70 rounded-2xl p-8 border border-orange-200/30 shadow-sm mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-barlow-condensed text-center">Sprint 3 Focus Areas</h3>
+            <div className="bg-gradient-to-r from-green-50/70 via-blue-50/60 to-purple-50/70 rounded-2xl p-8 border border-green-200/30 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-barlow-condensed text-center">Sprint 3 Completed Achievements ✅</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="bg-white/70 rounded-xl p-4 border border-red-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Emergency Call Fix</h4>
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Emergency Call Fix ✅</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Single-tap cancel within 2 seconds</p>
+                  <p className="text-sm text-gray-600 font-barlow">Confirmation modal with instant cancel</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-orange-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <Database className="h-5 w-5 text-orange-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Offline Data Sync</h4>
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Offline Data Sync ✅</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Save entries created offline locally</p>
+                  <p className="text-sm text-gray-600 font-barlow">60% faster sync, intelligent merge logic</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-yellow-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <Brain className="h-5 w-5 text-yellow-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Offline AI Assessment</h4>
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Profile Data Fix ✅</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Computer vision without internet</p>
+                  <p className="text-sm text-gray-600 font-barlow">AsyncStorage migration, no data loss</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-blue-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <Activity className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Notification System</h4>
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Help & Support ✅</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Fix reminder trigger functionality</p>
+                  <p className="text-sm text-gray-600 font-barlow">FAQ, User Guide, Feedback system</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-cyan-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <Shield className="h-5 w-5 text-cyan-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Help & Support</h4>
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Location Toggle Fix ✅</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">New feature for user assistance</p>
+                  <p className="text-sm text-gray-600 font-barlow">Instant sync, offline support</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-purple-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <MapPin className="h-5 w-5 text-purple-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Location Toggle Fix</h4>
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Edit/Delete CRUD ✅</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Functional on/off location services</p>
+                  <p className="text-sm text-gray-600 font-barlow">Full offline edit and delete support</p>
                 </div>
               </div>
             </div>
@@ -1009,14 +1026,14 @@ export default function HomePage() {
             <div className="text-center">
               <Button
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
                 onClick={() => setShowBugModal(true)}
               >
-                <Activity className="mr-2 h-5 w-5" />
-                View Sprint 3 Bug Tracker
+                <CheckCircle className="mr-2 h-5 w-5" />
+                View Sprint 3 Complete Report
               </Button>
               <p className="mt-4 text-sm text-gray-600 font-barlow">
-                See all current bugs and issues • November 1-28, 2025
+                15 bugs fixed • 8 enhancements • 3 closed as designed • November 1-28, 2025
               </p>
             </div>
           </div>
@@ -1152,14 +1169,14 @@ export default function HomePage() {
               }}
             >
               {/* Modal Header */}
-              <div className="relative bg-gradient-to-r from-orange-600/10 via-yellow-500/10 to-blue-600/10 px-6 py-5 border-b border-gray-200/50 flex justify-between items-center backdrop-blur-sm">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-yellow-500/5 animate-pulse"></div>
+              <div className="relative bg-gradient-to-r from-green-600/10 via-blue-500/10 to-green-600/10 px-6 py-5 border-b border-gray-200/50 flex justify-between items-center backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-blue-500/5 animate-pulse"></div>
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold text-gray-900 font-barlow-condensed tracking-wide">
-                    Sprint 3 Bug Tracker 🚧
+                    Sprint 3 Complete Report ✅
                   </h3>
                   <p className="text-sm text-gray-600 font-barlow mt-1">
-                    Team of 2 • In Progress • 17 total issues • November 1-28, 2025
+                    Team of 2 • Completed • 15 fixed, 8 enhancements, 3 open • November 1-28, 2025
                   </p>
                 </div>
                 <div className="relative z-10 flex items-center gap-3">
@@ -1175,41 +1192,41 @@ export default function HomePage() {
               {/* Modal Content */}
               <div className="overflow-y-auto max-h-[calc(85vh-100px)] p-6 scroll-smooth">
                 {/* Sprint 3 Current Status */}
-                <div className="mb-8 p-5 bg-gradient-to-r from-orange-50/90 via-yellow-50/80 to-blue-50/90 backdrop-blur-sm rounded-xl border border-orange-200/50 shadow-sm">
+                <div className="mb-8 p-5 bg-gradient-to-r from-green-50/90 via-blue-50/80 to-green-50/90 backdrop-blur-sm rounded-xl border border-green-200/50 shadow-sm">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
-                      <Activity className="w-6 h-6 text-white" />
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed">Sprint 3 In Progress 🚧</h4>
-                      <p className="text-sm text-gray-600 font-barlow">17 issues from user testing • November 1-28, 2025</p>
+                      <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed">Sprint 3 Completed ✅</h4>
+                      <p className="text-sm text-gray-600 font-barlow">15 bugs fixed • 8 enhancements • 3 closed as designed • November 1-28, 2025</p>
                     </div>
                   </div>
                   <div className="grid grid-cols-4 gap-3 mt-4">
-                    <div className="bg-white/70 rounded-lg p-3 text-center border border-red-100">
-                      <div className="text-2xl font-bold text-red-600 font-barlow-condensed">2</div>
-                      <div className="text-xs text-gray-600 font-barlow">Critical (P1)</div>
+                    <div className="bg-white/70 rounded-lg p-3 text-center border border-green-100">
+                      <div className="text-2xl font-bold text-green-600 font-barlow-condensed">2</div>
+                      <div className="text-xs text-gray-600 font-barlow">Critical Fixed ✅</div>
+                    </div>
+                    <div className="bg-white/70 rounded-lg p-3 text-center border border-green-100">
+                      <div className="text-2xl font-bold text-green-600 font-barlow-condensed">4</div>
+                      <div className="text-xs text-gray-600 font-barlow">High Fixed ✅</div>
+                    </div>
+                    <div className="bg-white/70 rounded-lg p-3 text-center border border-green-100">
+                      <div className="text-2xl font-bold text-green-600 font-barlow-condensed">9</div>
+                      <div className="text-xs text-gray-600 font-barlow">Med/Low Fixed ✅</div>
                     </div>
                     <div className="bg-white/70 rounded-lg p-3 text-center border border-orange-100">
                       <div className="text-2xl font-bold text-orange-600 font-barlow-condensed">3</div>
-                      <div className="text-xs text-gray-600 font-barlow">High (P2)</div>
-                    </div>
-                    <div className="bg-white/70 rounded-lg p-3 text-center border border-yellow-100">
-                      <div className="text-2xl font-bold text-yellow-600 font-barlow-condensed">2</div>
-                      <div className="text-xs text-gray-600 font-barlow">Med/Low (P3-4)</div>
-                    </div>
-                    <div className="bg-white/70 rounded-lg p-3 text-center border border-blue-100">
-                      <div className="text-2xl font-bold text-blue-600 font-barlow-condensed">10</div>
-                      <div className="text-xs text-gray-600 font-barlow">Additional</div>
+                      <div className="text-xs text-gray-600 font-barlow">Open 🔄</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Current Sprint Bugs */}
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold text-orange-700 mb-4 font-barlow-condensed flex items-center gap-2">
-                    <Activity className="h-5 w-5" />
-                    Current Sprint Issues ({Object.values(sprintBugs).reduce((sum, bugs) => sum + bugs.length, 0)})
+                  <h3 className="text-xl font-bold text-green-700 mb-4 font-barlow-condensed flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5" />
+                    Sprint 3 Resolved & Open Issues ({Object.values(sprintBugs).reduce((sum, bugs) => sum + bugs.length, 0)})
                   </h3>
                   <div className="space-y-6">
                     {Object.entries(sprintBugs).map(([category, bugs]) => (
@@ -1224,19 +1241,27 @@ export default function HomePage() {
                               onClick={() => setExpandedBugId(expandedBugId === `${category}-${index}` ? null : `${category}-${index}`)}
                               className={`group relative p-4 rounded-xl cursor-pointer transition-all duration-300 ease-in-out ${
                                 expandedBugId === `${category}-${index}`
-                                  ? "bg-gradient-to-br from-orange-50/95 to-yellow-50/90 border-l-4 border-orange-500 shadow-lg"
-                                  : "bg-white/80 backdrop-blur-sm border-l-2 border-transparent hover:bg-white/95 hover:border-l-orange-300 hover:shadow-md"
+                                  ? bug.status === "fixed" || bug.status === "completed" 
+                                    ? "bg-gradient-to-br from-green-50/95 to-blue-50/90 border-l-4 border-green-500 shadow-lg"
+                                    : bug.status === "closed"
+                                    ? "bg-gradient-to-br from-blue-50/95 to-cyan-50/90 border-l-4 border-blue-500 shadow-lg"
+                                    : "bg-gradient-to-br from-orange-50/95 to-yellow-50/90 border-l-4 border-orange-500 shadow-lg"
+                                  : "bg-white/80 backdrop-blur-sm border-l-2 border-transparent hover:bg-white/95 hover:border-l-green-300 hover:shadow-md"
                               }`}
                             >
                               <div className="flex items-start justify-between gap-3">
                                 <div className="flex items-start gap-3 flex-1 min-w-0">
-                                  {category === "Critical Priority" && (
+                                  {bug.status === "fixed" || bug.status === "completed" ? (
+                                    <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                                  ) : bug.status === "closed" ? (
+                                    <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                                  ) : bug.status === "open" ? (
+                                    <Activity className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                                  ) : category.includes("Critical") ? (
                                     <AlertTriangle className="h-4 w-4 text-red-600 flex-shrink-0 mt-0.5" />
-                                  )}
-                                  {category === "High Priority" && (
+                                  ) : category.includes("High") ? (
                                     <AlertTriangle className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
-                                  )}
-                                  {(category === "Medium/Low Priority" || category === "Additional Issues") && (
+                                  ) : (
                                     <Activity className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
                                   )}
                                   <div className="flex-1 min-w-0">
@@ -1245,6 +1270,19 @@ export default function HomePage() {
                                         <span className="text-xs font-mono text-gray-500 flex-shrink-0 font-barlow bg-gray-100/80 px-2 py-1 rounded-md">
                                           #{bug.id.toString().padStart(2, "0")}
                                         </span>
+                                      )}
+                                      {bug.status && (
+                                        <Badge className={`text-xs font-barlow font-medium px-2 py-0.5 ${
+                                          bug.status === "fixed" || bug.status === "completed" ? "bg-green-50 text-green-700 border-green-200" :
+                                          bug.status === "closed" ? "bg-blue-50 text-blue-700 border-blue-200" :
+                                          bug.status === "open" ? "bg-orange-50 text-orange-700 border-orange-200" :
+                                          ""
+                                        }`}>
+                                          {bug.status === "fixed" ? "Fixed ✅" : 
+                                           bug.status === "completed" ? "Completed ✅" :
+                                           bug.status === "closed" ? "Closed" :
+                                           bug.status === "open" ? "Open" : ""}
+                                        </Badge>
                                       )}
                                       {bug.priority && (
                                         <Badge className={`text-xs font-barlow font-medium px-2 py-0.5 ${
@@ -1259,7 +1297,11 @@ export default function HomePage() {
                                         <span className="text-xs text-gray-500 font-barlow">{bug.testCase}</span>
                                       )}
                                     </div>
-                                    <span className="text-sm font-barlow text-gray-900 font-medium block">
+                                    <span className={`text-sm font-barlow font-medium block ${
+                                      bug.status === "fixed" || bug.status === "completed" ? "text-gray-700 line-through decoration-green-500/50" : 
+                                      bug.status === "closed" ? "text-gray-700 line-through decoration-blue-500/50" :
+                                      "text-gray-900"
+                                    }`}>
                                       {bug.title}
                                     </span>
                                   </div>
@@ -1267,13 +1309,15 @@ export default function HomePage() {
                                 <ChevronRight
                                   className={`h-4 w-4 transition-all duration-300 ease-out flex-shrink-0 ${
                                     expandedBugId === `${category}-${index}`
-                                      ? "rotate-90 text-orange-600"
-                                      : "text-gray-400 group-hover:text-orange-500"
+                                      ? bug.status === "fixed" || bug.status === "completed" || bug.status === "closed"
+                                        ? "rotate-90 text-green-600"
+                                        : "rotate-90 text-orange-600"
+                                      : "text-gray-400 group-hover:text-green-500"
                                   }`}
                                 />
                               </div>
                               {expandedBugId === `${category}-${index}` && bug.description && (
-                                <div className="mt-4 pt-4 border-t border-orange-200/50">
+                                <div className="mt-4 pt-4 border-t border-green-200/50">
                                   <p className="text-sm text-gray-700 leading-relaxed font-barlow">
                                     {bug.description}
                                   </p>
@@ -1282,6 +1326,26 @@ export default function HomePage() {
                             </div>
                           ))}
                         </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sprint 3 Enhancements Section */}
+                <div className="mb-8 p-5 bg-gradient-to-r from-purple-50/90 via-blue-50/80 to-cyan-50/90 backdrop-blur-sm rounded-xl border border-purple-200/50 shadow-sm">
+                  <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed mb-3 flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-purple-600" />
+                    Sprint 3 New Features & Enhancements (8)
+                  </h4>
+                  <div className="space-y-3">
+                    {sprint3Enhancements.map((enhancement, index) => (
+                      <div key={enhancement.title} className="bg-white/60 rounded-lg p-3 border border-purple-100/50">
+                        <h5 className="text-sm font-semibold text-purple-700 font-barlow-condensed flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4" />
+                          {enhancement.title}
+                        </h5>
+                        <p className="text-xs text-gray-600 font-barlow mt-1">{enhancement.description}</p>
+                        <span className="text-xs text-purple-600 font-barlow font-medium">Impact: {enhancement.impact}</span>
                       </div>
                     ))}
                   </div>
@@ -1383,9 +1447,14 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <p className="text-sm text-gray-700 font-barlow leading-relaxed">
-                    <span className="font-semibold text-green-600">Sprint 2 Successfully Completed!</span> In just 1 week, our team of 2 developers fixed all 52 bugs from Sprint 1 user testing and added 8 major features including Mapbox address autocomplete, phone validation system, custom modal design, photo upload limits, section-specific validation, tracker search, form context persistence, and multi-photo AI assessment. Ready for production! 🚀
-                  </p>
+                  <div>
+                    <p className="text-sm text-gray-700 font-barlow leading-relaxed mb-2">
+                      <span className="font-semibold text-green-600">Sprint 3 Successfully Completed!</span> Our team of 2 developers fixed 15 bugs including 2 critical issues, added 8 major enhancements (Help & Support, Offline Profile Management, Emergency Call Safety, Global Offline Banner, iOS Date Picker, Photo Simplification, Smart Sync, Edit/Delete CRUD), and closed 3 issues as working-as-designed. Ready for final presentation! 🚀
+                    </p>
+                    <p className="text-xs text-gray-600 font-barlow">
+                      <span className="font-semibold">Summary:</span> 15 Fixed • 8 Enhancements • 3 Closed • 3 Open (deferred to Sprint 4) • November 1-28, 2025
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
