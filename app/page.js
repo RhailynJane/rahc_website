@@ -328,7 +328,45 @@ export default function HomePage() {
     { title: "Edit/Delete CRUD Operations", description: "Complete offline edit and delete functionality with tombstone processing", impact: "Full CRUD support in offline mode" },
   ];
 
-  const sprintBugs = sprint3Bugs;
+  // Sprint 4 - Current Sprint (Nov 29 - Dec 12, 2025)
+  const sprint4Bugs = {
+    "Critical Priority (P1) - iOS Platform Issues": [
+      { id: "D-001", title: "Online Edit Health Entry Fails", platform: "iOS", testCase: "TC-019", iosPassRate: "0%", androidPassRate: "100%", description: "CRITICAL: 'Failed to save entry online' error on all iOS devices. Core CRUD functionality broken. Android works perfectly.", priority: "P1", status: "open" },
+      { id: "D-002", title: "Online Delete Health Entry Fails", platform: "iOS", testCase: "TC-020", iosPassRate: "13%", androidPassRate: "100%", description: "CRITICAL: 'Failed to delete entry from server' error on most iOS devices. Core CRUD functionality broken. Only 1 out of 8 iOS testers passed.", priority: "P1", status: "open" },
+      { id: "D-003", title: "Offline Edit Creates Duplicate Entries", platform: "iOS", testCase: "TC-021", iosPassRate: "50%", androidPassRate: "100%", description: "CRITICAL: Data corruption - offline edits create duplicate entries instead of updating existing ones on iOS. Sync conflict issues.", priority: "P1", status: "open" },
+      { id: "D-004", title: "AI Assessment Not Saved to History", platform: "iOS", testCase: "TC-011", iosPassRate: "50%", androidPassRate: "100%", description: "CRITICAL: Users cannot access assessment history. Assessments complete but don't save to history on iOS.", priority: "P1", status: "open" },
+    ],
+    "High Priority (P2) - iOS Platform Issues": [
+      { id: "D-005", title: "Duplicate Email Registration Overwrites Account", platform: "iOS", testCase: "N/A", iosPassRate: "25%", androidPassRate: "100%", description: "Security concern & data loss - registering with existing email overwrites previous account data on iOS.", priority: "P2", status: "open" },
+      { id: "D-006", title: "Notification System Non-Functional", platform: "iOS", testCase: "TC-029", iosPassRate: "38%", androidPassRate: "100%", description: "Notifications do not appear for most iOS users. Major feature broken.", priority: "P2", status: "open" },
+      { id: "D-007", title: "Assessment History Not Refreshing", platform: "iOS", testCase: "TC-014", iosPassRate: "63%", androidPassRate: "100%", description: "History only refreshes after a new assessment is submitted. Stale data displayed.", priority: "P2", status: "open" },
+      { id: "D-008", title: "Add Reminder Button Missing", platform: "iOS", testCase: "TC-030", iosPassRate: "50%", androidPassRate: "100%", description: "'Add Reminder' button is missing for some iOS users. UI/state management issue.", priority: "P2", status: "open" },
+    ],
+  };
+
+  // Sprint 4 Test Results
+  const sprint4TestResults = {
+    ios: {
+      totalTested: 245,
+      passed: 187,
+      failed: 32,
+      notRun: 26,
+      passRate: "76%",
+      devices: ["iPhone 15", "iPhone 17 Pro", "iPhone 16", "iPhone 15 Pro Max", "iPhone XR"],
+      status: "Not Release Ready - Critical Defects"
+    },
+    android: {
+      totalTested: 190,
+      passed: 157,
+      failed: 25,
+      notRun: 12,
+      passRate: "86%",
+      devices: ["Samsung Galaxy A52", "Samsung S25", "Pixel 9 Pro", "Samsung S24"],
+      status: "Release Ready - Stable"
+    }
+  };
+
+  const sprintBugs = sprint4Bugs;
 
   const teamMembers = [
     {
@@ -895,15 +933,15 @@ export default function HomePage() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <Badge className="mb-6 bg-green-500/10 text-green-600 border-green-200 backdrop-blur-sm font-barlow font-semibold tracking-wide">
-                Sprint 3 Completed ✅
+              <Badge className="mb-6 bg-red-500/10 text-red-600 border-red-200 backdrop-blur-sm font-barlow font-semibold tracking-wide">
+                Sprint 4 Critical - iOS Platform Issues 🚨
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-gray-900 font-barlow-condensed">
                 Development Progress
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty font-barlow">
-                Track our journey from user testing feedback to production-ready features. 
-                Sprint 3 completed with 15 bugs fixed and 8 new enhancements.
+                Sprint 4 End-to-End Testing Revealed Critical iOS Platform Disparities. 
+                Android: 86% pass rate, release-ready. iOS: 76% pass rate, critical CRUD failures.
               </p>
             </div>
 
@@ -924,78 +962,86 @@ export default function HomePage() {
                 <div className="text-xs text-gray-600 font-barlow mt-2">Nov 1 - Nov 28</div>
                 <div className="text-xs text-gray-500 mt-1">15 Bugs + 8 Features</div>
               </div>
-              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-100/50 ring-2 ring-blue-300/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-lg font-bold text-blue-600 font-barlow-condensed">Sprint 4 📋</div>
+              <div className="text-center p-6 bg-red-50/70 rounded-xl border border-red-200/50 ring-2 ring-red-300/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-lg font-bold text-red-600 font-barlow-condensed">Sprint 4 🚨</div>
                 <div className="text-xs text-gray-600 font-barlow mt-2">Nov 29 - Dec 12</div>
-                <div className="text-xs text-blue-600 font-semibold mt-1">Final Presentation</div>
+                <div className="text-xs text-red-600 font-semibold mt-1">Critical iOS Issues</div>
               </div>
             </div>
 
-            {/* Sprint 3 Stats Cards */}
+            {/* Sprint 4 Stats Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-              <div className="text-center p-6 bg-green-50/50 rounded-xl border border-green-200/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-green-600 font-barlow-condensed">15</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Bugs Fixed ✅</div>
-              </div>
-              <div className="text-center p-6 bg-blue-50/50 rounded-xl border border-blue-200/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 font-barlow-condensed">3</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Closed (As Designed)</div>
-              </div>
-              <div className="text-center p-6 bg-purple-50/50 rounded-xl border border-purple-200/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-purple-600 font-barlow-condensed">8</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Enhancements ✨</div>
+              <div className="text-center p-6 bg-red-50/50 rounded-xl border border-red-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-red-600 font-barlow-condensed">4</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Critical (P1) iOS</div>
               </div>
               <div className="text-center p-6 bg-orange-50/50 rounded-xl border border-orange-200/50 hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-orange-600 font-barlow-condensed">3</div>
-                <div className="text-sm text-gray-600 font-barlow mt-2">Open Issues 🔄</div>
+                <div className="text-3xl md:text-4xl font-bold text-orange-600 font-barlow-condensed">4</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">High (P2) iOS</div>
+              </div>
+              <div className="text-center p-6 bg-green-50/50 rounded-xl border border-green-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-green-600 font-barlow-condensed">86%</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">Android Pass Rate ✅</div>
+              </div>
+              <div className="text-center p-6 bg-yellow-50/50 rounded-xl border border-yellow-200/50 hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-yellow-600 font-barlow-condensed">76%</div>
+                <div className="text-sm text-gray-600 font-barlow mt-2">iOS Pass Rate ⚠️</div>
               </div>
             </div>
 
-            {/* Sprint 3 Focus Areas */}
-            <div className="bg-gradient-to-r from-green-50/70 via-blue-50/60 to-purple-50/70 rounded-2xl p-8 border border-green-200/30 shadow-sm mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-barlow-condensed text-center">Sprint 3 Completed Achievements ✅</h3>
+            {/* Sprint 4 Critical Issues */}
+            <div className="bg-gradient-to-r from-red-50/70 via-orange-50/60 to-yellow-50/70 rounded-2xl p-8 border border-red-200/30 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-barlow-condensed text-center">Sprint 4 Critical iOS Platform Issues 🚨</h3>
+              <div className="mb-6 p-4 bg-white/70 rounded-xl border border-red-100/50">
+                <div className="flex items-center gap-3 mb-2">
+                  <AlertTriangle className="h-6 w-6 text-red-600 flex-shrink-0" />
+                  <h4 className="font-bold text-red-900 font-barlow-condensed">Platform Disparity Analysis</h4>
+                </div>
+                <p className="text-sm text-gray-700 font-barlow mb-2"><strong>Android:</strong> 86% pass rate - Stable, Release Ready ✅</p>
+                <p className="text-sm text-gray-700 font-barlow"><strong>iOS:</strong> 76% pass rate - Critical CRUD failures, Not Release Ready 🚫</p>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-red-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Emergency Call Fix ✅</h4>
+                    <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Online Edit Fails (0%)</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Confirmation modal with instant cancel</p>
+                  <p className="text-sm text-gray-600 font-barlow">ALL iOS devices fail to save edits online</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-red-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Offline Data Sync ✅</h4>
+                    <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Online Delete Fails (13%)</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">60% faster sync, intelligent merge logic</p>
+                  <p className="text-sm text-gray-600 font-barlow">87% of iOS tests fail to delete from server</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-red-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Profile Data Fix ✅</h4>
+                    <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Duplicate Entries (50%)</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">AsyncStorage migration, no data loss</p>
+                  <p className="text-sm text-gray-600 font-barlow">Offline edits create duplicates, data corruption</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-orange-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Help & Support ✅</h4>
+                    <AlertTriangle className="h-5 w-5 text-orange-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">AI History Lost (50%)</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">FAQ, User Guide, Feedback system</p>
+                  <p className="text-sm text-gray-600 font-barlow">Assessments don&apos;t save to history on iOS</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-orange-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Location Toggle Fix ✅</h4>
+                    <AlertTriangle className="h-5 w-5 text-orange-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Notifications Broken (38%)</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Instant sync, offline support</p>
+                  <p className="text-sm text-gray-600 font-barlow">Most iOS users don&apos;t receive notifications</p>
                 </div>
-                <div className="bg-white/70 rounded-xl p-4 border border-green-100/50 hover:scale-105 transition-transform duration-300">
+                <div className="bg-white/70 rounded-xl p-4 border border-orange-100/50 hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Edit/Delete CRUD ✅</h4>
+                    <AlertTriangle className="h-5 w-5 text-orange-600 flex-shrink-0" />
+                    <h4 className="font-semibold text-gray-900 font-barlow-condensed">Account Overwrite (25%)</h4>
                   </div>
-                  <p className="text-sm text-gray-600 font-barlow">Full offline edit and delete support</p>
+                  <p className="text-sm text-gray-600 font-barlow">Duplicate email registration causes data loss</p>
                 </div>
               </div>
             </div>
@@ -1026,14 +1072,14 @@ export default function HomePage() {
             <div className="text-center">
               <Button
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold tracking-wide font-barlow"
                 onClick={() => setShowBugModal(true)}
               >
-                <CheckCircle className="mr-2 h-5 w-5" />
-                View Sprint 3 Complete Report
+                <AlertTriangle className="mr-2 h-5 w-5" />
+                View Sprint 4 Testing Report
               </Button>
               <p className="mt-4 text-sm text-gray-600 font-barlow">
-                15 bugs fixed • 8 enhancements • 3 closed as designed • November 1-28, 2025
+                49 test cases • 8 critical iOS bugs • Platform disparity analysis • Nov 24-27, 2025
               </p>
             </div>
           </div>
@@ -1169,14 +1215,14 @@ export default function HomePage() {
               }}
             >
               {/* Modal Header */}
-              <div className="relative bg-gradient-to-r from-green-600/10 via-blue-500/10 to-green-600/10 px-6 py-5 border-b border-gray-200/50 flex justify-between items-center backdrop-blur-sm">
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-blue-500/5 animate-pulse"></div>
+              <div className="relative bg-gradient-to-r from-red-600/10 via-orange-500/10 to-red-600/10 px-6 py-5 border-b border-gray-200/50 flex justify-between items-center backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 via-transparent to-orange-500/5 animate-pulse"></div>
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold text-gray-900 font-barlow-condensed tracking-wide">
-                    Sprint 3 Complete Report ✅
+                    Sprint 4 Testing Report 🚨
                   </h3>
                   <p className="text-sm text-gray-600 font-barlow mt-1">
-                    Team of 2 • Completed • 15 fixed, 8 enhancements, 3 open • November 1-28, 2025
+                    End-to-End Testing • 49 Test Cases • 8 Critical iOS Bugs • November 24-27, 2025
                   </p>
                 </div>
                 <div className="relative z-10 flex items-center gap-3">
@@ -1191,42 +1237,38 @@ export default function HomePage() {
 
               {/* Modal Content */}
               <div className="overflow-y-auto max-h-[calc(85vh-100px)] p-6 scroll-smooth">
-                {/* Sprint 3 Current Status */}
-                <div className="mb-8 p-5 bg-gradient-to-r from-green-50/90 via-blue-50/80 to-green-50/90 backdrop-blur-sm rounded-xl border border-green-200/50 shadow-sm">
+                {/* Sprint 4 Testing Status */}
+                <div className="mb-8 p-5 bg-gradient-to-r from-red-50/90 via-orange-50/80 to-yellow-50/90 backdrop-blur-sm rounded-xl border border-red-200/50 shadow-sm">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-white" />
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                      <AlertTriangle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed">Sprint 3 Completed ✅</h4>
-                      <p className="text-sm text-gray-600 font-barlow">15 bugs fixed • 8 enhancements • 3 closed as designed • November 1-28, 2025</p>
+                      <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed">Sprint 4 End-to-End Testing - Platform Disparity 🚨</h4>
+                      <p className="text-sm text-gray-600 font-barlow">49 test cases • iOS: 76% pass rate (not ready) • Android: 86% pass rate (ready) • November 24-27, 2025</p>
                     </div>
                   </div>
-                  <div className="grid grid-cols-4 gap-3 mt-4">
-                    <div className="bg-white/70 rounded-lg p-3 text-center border border-green-100">
-                      <div className="text-2xl font-bold text-green-600 font-barlow-condensed">2</div>
-                      <div className="text-xs text-gray-600 font-barlow">Critical Fixed ✅</div>
+                  <div className="grid grid-cols-2 gap-3 mt-4">
+                    <div className="bg-white/70 rounded-lg p-3 border border-red-100">
+                      <div className="text-sm font-semibold text-red-700 font-barlow-condensed mb-1">🚫 iOS - Not Release Ready</div>
+                      <div className="text-2xl font-bold text-red-600 font-barlow-condensed">76%</div>
+                      <div className="text-xs text-gray-600 font-barlow">187 passed / 32 failed / 26 not run</div>
+                      <div className="text-xs text-red-600 font-barlow mt-1">4 Critical + 4 High Priority Bugs</div>
                     </div>
-                    <div className="bg-white/70 rounded-lg p-3 text-center border border-green-100">
-                      <div className="text-2xl font-bold text-green-600 font-barlow-condensed">4</div>
-                      <div className="text-xs text-gray-600 font-barlow">High Fixed ✅</div>
-                    </div>
-                    <div className="bg-white/70 rounded-lg p-3 text-center border border-green-100">
-                      <div className="text-2xl font-bold text-green-600 font-barlow-condensed">9</div>
-                      <div className="text-xs text-gray-600 font-barlow">Med/Low Fixed ✅</div>
-                    </div>
-                    <div className="bg-white/70 rounded-lg p-3 text-center border border-orange-100">
-                      <div className="text-2xl font-bold text-orange-600 font-barlow-condensed">3</div>
-                      <div className="text-xs text-gray-600 font-barlow">Open 🔄</div>
+                    <div className="bg-white/70 rounded-lg p-3 border border-green-100">
+                      <div className="text-sm font-semibold text-green-700 font-barlow-condensed mb-1">✅ Android - Release Ready</div>
+                      <div className="text-2xl font-bold text-green-600 font-barlow-condensed">86%</div>
+                      <div className="text-xs text-gray-600 font-barlow">157 passed / 25 failed / 12 not run</div>
+                      <div className="text-xs text-green-600 font-barlow mt-1">Stable, No Critical Issues</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Current Sprint Bugs */}
+                {/* Sprint 4 Critical Bugs */}
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold text-green-700 mb-4 font-barlow-condensed flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5" />
-                    Sprint 3 Resolved & Open Issues ({Object.values(sprintBugs).reduce((sum, bugs) => sum + bugs.length, 0)})
+                  <h3 className="text-xl font-bold text-red-700 mb-4 font-barlow-condensed flex items-center gap-2">
+                    <AlertTriangle className="h-5 w-5" />
+                    Sprint 4 Critical iOS Platform Issues ({Object.values(sprintBugs).reduce((sum, bugs) => sum + bugs.length, 0)})
                   </h3>
                   <div className="space-y-6">
                     {Object.entries(sprintBugs).map(([category, bugs]) => (
@@ -1331,23 +1373,28 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Sprint 3 Enhancements Section */}
-                <div className="mb-8 p-5 bg-gradient-to-r from-purple-50/90 via-blue-50/80 to-cyan-50/90 backdrop-blur-sm rounded-xl border border-purple-200/50 shadow-sm">
-                  <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed mb-3 flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-purple-600" />
-                    Sprint 3 New Features & Enhancements (8)
-                  </h4>
-                  <div className="space-y-3">
-                    {sprint3Enhancements.map((enhancement, index) => (
-                      <div key={enhancement.title} className="bg-white/60 rounded-lg p-3 border border-purple-100/50">
-                        <h5 className="text-sm font-semibold text-purple-700 font-barlow-condensed flex items-center gap-2">
-                          <CheckCircle className="h-4 w-4" />
-                          {enhancement.title}
-                        </h5>
-                        <p className="text-xs text-gray-600 font-barlow mt-1">{enhancement.description}</p>
-                        <span className="text-xs text-purple-600 font-barlow font-medium">Impact: {enhancement.impact}</span>
-                      </div>
-                    ))}
+                {/* Sprint 3 Completed Summary */}
+                <div className="mb-8 p-5 bg-gradient-to-r from-green-50/70 via-blue-50/60 to-green-50/70 backdrop-blur-sm rounded-xl border border-green-200/30 shadow-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <h4 className="text-lg font-bold text-gray-900 font-barlow-condensed">Sprint 3 - Completed ✅</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 font-barlow mb-3">
+                    15 bugs fixed • 8 enhancements added • 3 closed as designed • November 1-28, 2025
+                  </p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <div className="bg-white/60 rounded-lg p-2 border border-green-100/50 text-center">
+                      <div className="text-xs text-gray-700 font-barlow font-semibold">Help & Support</div>
+                    </div>
+                    <div className="bg-white/60 rounded-lg p-2 border border-green-100/50 text-center">
+                      <div className="text-xs text-gray-700 font-barlow font-semibold">Profile AsyncStorage</div>
+                    </div>
+                    <div className="bg-white/60 rounded-lg p-2 border border-green-100/50 text-center">
+                      <div className="text-xs text-gray-700 font-barlow font-semibold">Smart Offline Sync</div>
+                    </div>
+                    <div className="bg-white/60 rounded-lg p-2 border border-green-100/50 text-center">
+                      <div className="text-xs text-gray-700 font-barlow font-semibold">Edit/Delete CRUD</div>
+                    </div>
                   </div>
                 </div>
 
@@ -1441,18 +1488,19 @@ export default function HomePage() {
                 </div>
 
                 {/* Footer Note */}
-                <div className="mt-8 p-5 bg-gradient-to-r from-green-50/90 via-blue-50/80 to-green-50/90 backdrop-blur-sm rounded-xl border border-green-200/50 shadow-sm flex items-center gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                <div className="mt-8 p-5 bg-gradient-to-r from-red-50/90 via-orange-50/80 to-yellow-50/90 backdrop-blur-sm rounded-xl border border-red-200/50 shadow-sm flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                    <AlertTriangle className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-700 font-barlow leading-relaxed mb-2">
-                      <span className="font-semibold text-green-600">Sprint 3 Successfully Completed!</span> Our team of 2 developers fixed 15 bugs including 2 critical issues, added 8 major enhancements (Help & Support, Offline Profile Management, Emergency Call Safety, Global Offline Banner, iOS Date Picker, Photo Simplification, Smart Sync, Edit/Delete CRUD), and closed 3 issues as working-as-designed. Ready for final presentation! 🚀
+                      <span className="font-semibold text-red-600">Sprint 4 Critical Findings:</span> End-to-end testing (Nov 24-27, 2025) across 49 test cases revealed significant platform disparity. <span className="font-semibold text-green-600">Android is release-ready</span> with 86% pass rate and no critical defects. <span className="font-semibold text-red-600">iOS is NOT release-ready</span> with 76% pass rate and 8 critical/high-priority defects blocking core CRUD functionality.
+                    </p>
+                    <p className="text-xs text-gray-600 font-barlow mb-2">
+                      <span className="font-semibold">Critical iOS Issues:</span> Online Edit (0% pass), Online Delete (13% pass), Offline Duplicates (50% pass), AI History Loss (50% pass), Notifications Broken (38% pass), Account Overwrite (25% pass).
                     </p>
                     <p className="text-xs text-gray-600 font-barlow">
-                      <span className="font-semibold">Summary:</span> 15 Fixed • 8 Enhancements • 3 Closed • 3 Open (deferred to Sprint 4) • November 1-28, 2025
+                      <span className="font-semibold">Recommendation:</span> Form dedicated iOS triage squad to resolve P1 defects (D-001 to D-004). Investigate iOS-specific API communication failures. Android testing complete - ready for production release. 🚀
                     </p>
                   </div>
                 </div>
