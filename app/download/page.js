@@ -34,13 +34,13 @@ export default function DownloadPage() {
   ];
   const handleDownload = () => {
     const apkUrl =
-      "https://drive.google.com/uc?export=download&id=1RuOcUGfUlvkQDw_pa7yw-IPXEyoz0ylZ";
+      "https://drive.google.com/file/d/1zJ0CgN7swSO3dpYZ9kPFr4uTbONAWATi/view?usp=sharing";
     window.open(apkUrl, "_blank", "noopener,noreferrer");
   };
 
   const appInfo = {
     version: "3.0.0",
-    size: "237.9 MB",
+    size: "495 MB",
     requirements: "Android 8.0+",
     lastUpdated: "November 2025",
   };
