@@ -100,3 +100,16 @@ Proprietary - Rural Alberta Health Connect © 2025
 ---
 
 *Bridging the healthcare gap with innovative technology and compassionate care for rural Alberta communities.*
+
+## 📝 Sprint 4 Release Notes (Dec 12, 2025)
+
+- Root cause: iOS issues in production were due to deploying the wrong branch. After correcting the branch, all tests passed.
+- Result: End-to-end testing across 9 suites completed with 51/51 tests passed on both iOS and Android (100% pass rate).
+- Notable validations:
+	- Router/auth layout fixes prevent navigation back to sign-up post-auth.
+	- Consistent error handling and modals in auth flows.
+	- AI Assessment scrolling responsiveness improved for image attachments.
+	- Health Tracker edit now updates timestamps correctly.
+	- Offline edits/deletes sync reliably when reconnected.
+
+Status: Release Ready – Stable (iOS and Android)

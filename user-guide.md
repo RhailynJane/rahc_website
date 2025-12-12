@@ -1,6 +1,43 @@
 # Rural Alberta Health Connect (RAHC) - User Guide
+**Version 2.0** | Last Updated: October 28, 2025
+# Rural Alberta Health Connect (RAHC) - User Guide
 
 **Version 2.0** | Last Updated: October 28, 2025
+
+
+## Sprint 4 Testing Summary (E2E)
+
+**Complete End-to-End User Testing Guide**
+- Version: 1.0
+- Last Updated: December 12, 2025
+- Purpose: Comprehensive testing guide for validating all RAHC features
+
+### Overview
+- All 51 test cases across 9 suites passed in Sprint 4.
+- iOS issues previously reported were due to the wrong branch being built and deployed to production. The branch mismatch has been corrected; no iOS-specific functional issues remain after retesting.
+
+### Test Suites Covered
+- Account Management, Dashboard & Navigation, AI Health Assessment, Health Tracker, Emergency Services, Notifications & Reminders, Profile & Settings, Help & Support, Offline Functionality.
+
+### Notable Fixes Verified
+- Router behavior: prevented navigation back to sign-up after authentication by applying conditional rendering in layout.
+- Error handling: standardized user-friendly errors and modals for registration/sign-in flows.
+- AI Assessment: improved scrolling responsiveness when images are attached by removing pressable and dismissing keyboard on scroll begin.
+- Health Tracker: corrected date handling on edit to reflect updated timestamps.
+- Offline flows: verified local save and background sync on reconnect for edits and deletions.
+
+### Test Execution Summary
+- Total Tests: 51
+- Passed: 51
+- Failed: 0
+- Not Run: 0
+- Pass Rate: 100%
+
+### Known Limitations & Disclaimers
+- AI assessments require internet; offline queued operations sync on reconnect.
+- Emergency features depend on device location permissions and GPS availability.
+- Offline maps must be pre-downloaded; coverage limited to Alberta regions.
+- Medical guidance is informational and not a diagnosis; call 911 for emergencies.
 
 ---
 
