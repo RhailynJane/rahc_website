@@ -774,6 +774,29 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Demo Video Section */}
+        <section className="py-20 bg-gradient-to-br from-white/70 via-cyan-50/40 to-blue-50/40 backdrop-blur-sm relative">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-gray-900 font-barlow-condensed">
+                See It In Action
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty font-barlow">
+                Watch our demo to see how Rural Alberta Health Connect provides AI-powered health guidance and emergency services.
+              </p>
+            </div>
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50">
+              <iframe
+                src="https://drive.google.com/file/d/1XW3TN9SUBgaue6f6AoTCGmMSRZ1K85hZ/preview"
+                className="absolute inset-0 w-full h-full"
+                allow="autoplay"
+                allowFullScreen
+                title="Rural Alberta Health Connect Demo"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Services Section */}
         <section
           id="services"

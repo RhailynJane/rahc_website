@@ -34,7 +34,7 @@ export default function DownloadPage() {
   ];
   const handleDownload = () => {
     const apkUrl =
-      "https://drive.google.com/file/d/1zJ0CgN7swSO3dpYZ9kPFr4uTbONAWATi/view?usp=sharing";
+      "https://drive.google.com/file/d/177JB9jtrSeEh0vOxxK_bNWTuTsqkS18l/view?usp=sharing";
     window.open(apkUrl, "_blank", "noopener,noreferrer");
   };
 
