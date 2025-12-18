@@ -39,10 +39,10 @@ export default function DownloadPage() {
   };
 
   const appInfo = {
-    version: "3.0.0",
-    size: "495 MB",
+    version: "4.0.0",
+    size: "571 MB",
     requirements: "Android 8.0+",
-    lastUpdated: "November 2025",
+    lastUpdated: "December 2025",
   };
 
   const iosInfo = {
